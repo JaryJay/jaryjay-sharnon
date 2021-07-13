@@ -2,6 +2,8 @@ package game.actor;
 
 public class GameActor {
 
+	protected String name;
+
 	protected int maxHealth;
 	protected int maxEnergy;
 	protected int health;
@@ -10,7 +12,8 @@ public class GameActor {
 	protected int defence;
 	protected int agility;
 
-	public GameActor(int maxHealth, int maxEnergy, int attack, int defence, int agility) {
+	public GameActor(String name, int maxHealth, int maxEnergy, int attack, int defence, int agility) {
+		this.name = name;
 		this.maxHealth = maxHealth;
 		this.maxEnergy = maxEnergy;
 		this.health = maxHealth;
@@ -18,6 +21,24 @@ public class GameActor {
 		this.attack = attack;
 		this.defence = defence;
 		this.agility = agility;
+	}
+
+	@Override
+	public String toString() {
+		return name
+				+ "\nHealth:  " + health + "/" + maxHealth
+				+ "\nEnergy:  " + energy + "/" + maxEnergy
+				+ "\nAttack:  " + attack
+				+ "\nDefence: " + defence
+				+ "\nAgility: " + agility;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public int getMaxHealth() {

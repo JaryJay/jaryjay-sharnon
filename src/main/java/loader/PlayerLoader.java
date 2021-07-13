@@ -8,34 +8,33 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 
-import game.actor.Player;
+import game.actor.GameClass;
+import game.actor.Human;
 
 public class PlayerLoader {
 
 	private static final String SAVE_LOCATION = "C:\\Users\\Jay\\Documents\\GitHub\\jaryjay-sharnon\\src\\main\\resources\\%s.json";
 
-	public static Player loadPlayer(String name) {
+	public static Human createPlayer(String name) {
+		return new Human(name, GameClass.ARCHER, 10, 10, 5, 6, 0);
+	}
+
+	public static Human loadPlayer(String name) {
 		Gson gson = new GsonBuilder().create();
 		try (JsonReader reader = new JsonReader(new FileReader(String.format(SAVE_LOCATION, name)))) {
-			return gson.fromJson(reader, Player.class);
+			return gson.fromJson(reader, Human.class);
 		} catch (IOException e) {
-			return new Player(10, 10, 10, 10, 10, "New player");
+			return null;
 		}
 	}
 
-	public static void savePlayer(Player player) {
+	public static void savePlayer(Human player) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try (FileWriter writer = new FileWriter(String.format(SAVE_LOCATION, player.getName()))) {
 			gson.toJson(player, writer);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	public static void main(String[] args) {
-		Player player = new Player(1, 2, 3, 4, 5, "Wei");
-		savePlayer(player);
-		System.out.println(loadPlayer("Wei"));
 	}
 
 }

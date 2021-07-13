@@ -1,16 +1,24 @@
 package inventory;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Consumer;
-import java.util.stream.Stream;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Inventory {
 
-	private List<Item> items = new ArrayList<>();
+	private Map<Item, Integer> items;
 
-	public void forEach(Consumer<? super Item> action) {
-		items.forEach(action);
+	public Inventory() {
+		items = new HashMap<>();
+	}
+
+	@Override
+	public String toString() {
+		String string = "";
+		items.keySet().stream().sorted((i1, i2) -> i1.getDescription().compareTo(i2.getDescription())).forEach(i -> {
+
+		});
+		return string;
 	}
 
 	public int size() {
@@ -21,45 +29,28 @@ public class Inventory {
 		return items.isEmpty();
 	}
 
-	public boolean contains(Object o) {
-		return items.contains(o);
+	public Integer get(Object key) {
+		return items.get(key);
 	}
 
-	public boolean add(Item e) {
-		return items.add(e);
+	public Integer put(Item key, Integer value) {
+		return items.put(key, value);
 	}
 
-	public boolean remove(Object o) {
-		return items.remove(o);
+	public Integer remove(Object key) {
+		return items.remove(key);
 	}
 
 	public void clear() {
 		items.clear();
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		return items.equals(o);
+	public Collection<Integer> values() {
+		return items.values();
 	}
 
-	public Item get(int index) {
-		return items.get(index);
-	}
-
-	public void add(int index, Item element) {
-		items.add(index, element);
-	}
-
-	public Item remove(int index) {
-		return items.remove(index);
-	}
-
-	public int indexOf(Object o) {
-		return items.indexOf(o);
-	}
-
-	public Stream<Item> stream() {
-		return items.stream();
+	public boolean remove(Object key, Object value) {
+		return items.remove(key, value);
 	}
 
 }
