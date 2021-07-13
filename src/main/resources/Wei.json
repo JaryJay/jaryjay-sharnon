@@ -1,0 +1,12 @@
+{
+  "name": "Wei",
+  "level": 0,
+  "experience": 0,
+  "maxHealth": 1,
+  "maxEnergy": 2,
+  "health": 1,
+  "energy": 2,
+  "attack": 3,
+  "defence": 4,
+  "agility": 5
+}
