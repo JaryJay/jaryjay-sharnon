@@ -29,7 +29,8 @@ public class Human extends GameActor implements HasLevel, HasClass {
 
 	@Override
 	public String toString() {
-		return name + " Level." + level + " " + gameClass.toString() + " Exp: " + experience + "/" + (level * 50 + 50)
+		return name + " Level." + level + " " + gameClass.toString()
+				+ "\nExp: " + experience + "/" + (level * 50 + 50)
 				+ "\nHealth:  " + health + "/" + maxHealth
 				+ "\nEnergy:  " + energy + "/" + maxEnergy
 				+ "\nAttack:  " + attack

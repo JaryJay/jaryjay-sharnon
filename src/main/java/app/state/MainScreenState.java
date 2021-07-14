@@ -3,7 +3,7 @@ package app.state;
 import app.SharnonApp;
 import command.GameCommand;
 import game.actor.Human;
-import loader.PlayerLoader;
+import loader.ActorLoader;
 
 public class MainScreenState extends AppState {
 
@@ -14,7 +14,7 @@ public class MainScreenState extends AppState {
 	@Override
 	public void initCommands() {
 		addCommand(new GameCommand("start", "<name>", "Start a session with a given player name", 2, args -> {
-			Human player = PlayerLoader.loadPlayer(args[1]);
+			Human player = ActorLoader.loadHuman(args[1]);
 			if (player == null) {
 				System.out.println("No player found with name " + args[1] + ".");
 			} else {
@@ -23,7 +23,7 @@ public class MainScreenState extends AppState {
 			}
 		}));
 		addCommand(new GameCommand("create", "<name>", "Create a new player", 2, args -> {
-			PlayerLoader.savePlayer(PlayerLoader.createPlayer(args[1]));
+			ActorLoader.saveActor(ActorLoader.createHuman(args[1]));
 		}));
 	}
 

@@ -1,0 +1,16 @@
+{
+  "level": 30,
+  "experience": 0,
+  "gameClass": "WARMAGE",
+  "inventory": {
+    "items": {}
+  },
+  "name": "Lerkite",
+  "maxHealth": 36,
+  "maxEnergy": 42,
+  "health": 36,
+  "energy": 42,
+  "attack": 18,
+  "defence": 19,
+  "agility": 11
+}

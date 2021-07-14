@@ -1,7 +1,11 @@
 {
-  "name": "Wei",
   "level": 20,
   "experience": 1000,
+  "gameClass": "ARCHER",
+  "inventory": {
+    "items": {}
+  },
+  "name": "Wei",
   "maxHealth": 37,
   "maxEnergy": 28,
   "health": 37,

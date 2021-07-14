@@ -14,11 +14,11 @@ public class Inventory {
 
 	@Override
 	public String toString() {
-		String string = "";
+		StringBuilder stringBuilder = new StringBuilder();
 		items.keySet().stream().sorted((i1, i2) -> i1.getDescription().compareTo(i2.getDescription())).forEach(i -> {
-
+			stringBuilder.append(items.get(i) + "x " + i.toString());
 		});
-		return string;
+		return stringBuilder.toString();
 	}
 
 	public int size() {

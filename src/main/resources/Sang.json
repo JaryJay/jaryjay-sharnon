@@ -1,0 +1,16 @@
+{
+  "level": 25,
+  "experience": 0,
+  "gameClass": "CLERIC",
+  "inventory": {
+    "items": {}
+  },
+  "name": "Sang",
+  "maxHealth": 10,
+  "maxEnergy": 10,
+  "health": 10,
+  "energy": 10,
+  "attack": 5,
+  "defence": 6,
+  "agility": 0
+}

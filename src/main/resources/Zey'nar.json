@@ -1,0 +1,16 @@
+{
+  "level": 20,
+  "experience": 0,
+  "gameClass": "MAGE",
+  "inventory": {
+    "items": {}
+  },
+  "name": "Zey\u0027nar",
+  "maxHealth": 10,
+  "maxEnergy": 10,
+  "health": 10,
+  "energy": 10,
+  "attack": 5,
+  "defence": 6,
+  "agility": 0
+}
