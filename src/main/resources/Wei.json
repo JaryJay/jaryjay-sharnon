@@ -1,9 +1,33 @@
 {
   "level": 20,
   "experience": 1000,
-  "gameClass": "ARCHER",
+  "gameClass": "WARRIOR",
   "inventory": {
-    "items": {}
+    "items": [
+      {
+        "name": "Throwing Knife",
+        "description": "A razor sharp knife with a ring on the end, suitable for throwing.",
+        "value": 0.2
+      },
+      {
+        "name": "Communicator Artifact",
+        "description": "A heavy steel artifact used to contact other similar artifacts.",
+        "value": 35.0
+      }
+    ],
+    "amounts": [
+      12,
+      1
+    ]
+  },
+  "spellBook": {
+    "spells": [
+      {
+        "cost": 4,
+        "name": "Fireball",
+        "description": "Deal 8 damage disregarding defence to a target."
+      }
+    ]
   },
   "name": "Wei",
   "maxHealth": 37,

@@ -3,7 +3,11 @@
   "experience": 0,
   "gameClass": "ASSASSIN",
   "inventory": {
-    "items": {}
+    "items": [],
+    "amounts": []
+  },
+  "spellBook": {
+    "spells": []
   },
   "name": "Noya",
   "maxHealth": 10,

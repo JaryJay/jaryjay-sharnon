@@ -3,7 +3,11 @@
   "experience": 0,
   "gameClass": "CLERIC",
   "inventory": {
-    "items": {}
+    "items": [],
+    "amounts": []
+  },
+  "spellBook": {
+    "spells": []
   },
   "name": "Sang",
   "maxHealth": 10,

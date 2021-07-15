@@ -1,0 +1,28 @@
+{
+  "level": 0,
+  "experience": 0,
+  "gameClass": "ARCHER",
+  "inventory": {
+    "items": [
+      {
+        "name": "Gold Coin",
+        "description": "A shiny golden coin",
+        "value": 1.0
+      }
+    ],
+    "amounts": [
+      4
+    ]
+  },
+  "spellBook": {
+    "spells": []
+  },
+  "name": "Test",
+  "maxHealth": 10,
+  "maxEnergy": 10,
+  "health": 10,
+  "energy": 10,
+  "attack": 5,
+  "defence": 6,
+  "agility": 0
+}

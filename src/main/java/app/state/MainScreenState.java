@@ -18,7 +18,7 @@ public class MainScreenState extends AppState {
 			if (player == null) {
 				System.out.println("No player found with name " + args[1] + ".");
 			} else {
-				System.out.println("Starting session with " + args[1] + ".");
+				System.out.println("Starting session with " + player.getName() + ".");
 				transitionState(new PlayState(app, player));
 			}
 		}));

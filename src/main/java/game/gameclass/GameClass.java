@@ -1,4 +1,4 @@
-package game.actor;
+package game.gameclass;
 
 public enum GameClass {
 

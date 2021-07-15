@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Amulet of Resurrection",
+    "description": "A magical amulet that prevents the wearer from dying once.",
+    "value": 3000.0
+  },
+  {
+    "name": "Communicator Artifact",
+    "description": "A heavy steel artifact used to contact other similar artifacts.",
+    "value": 35.0
+  },
+  {
+    "name": "Gold Coin",
+    "description": "A shiny golden coin",
+    "value": 1.0
+  },
+  {
+    "name": "Health Potion",
+    "description": "A potion of crimson liquid that restores 15 health to the drinker.",
+    "value": 12.0
+  },
+  {
+    "name": "Map of Sharnon",
+    "description": "A large parchment map of Sharnon.",
+    "value": 5.0
+  },
+  {
+    "name": "Potion Belt",
+    "description": "A belt for holding potions.",
+    "value": 3.0
+  },
+  {
+    "name": "Ration",
+    "description": "A fat ration containing potatoes, meat, and carrots",
+    "value": 1.0
+  },
+  {
+    "name": "Tent",
+    "description": "A cloth tent",
+    "value": 10.0
+  },
+  {
+    "name": "Throwing Knife",
+    "description": "A razor sharp knife with a ring on the end, suitable for throwing.",
+    "value": 0.2
+  }
+]

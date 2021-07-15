@@ -3,7 +3,11 @@
   "experience": 0,
   "gameClass": "MAGE",
   "inventory": {
-    "items": {}
+    "items": [],
+    "amounts": []
+  },
+  "spellBook": {
+    "spells": []
   },
   "name": "Zey\u0027nar",
   "maxHealth": 10,

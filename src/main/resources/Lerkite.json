@@ -3,7 +3,11 @@
   "experience": 0,
   "gameClass": "WARMAGE",
   "inventory": {
-    "items": {}
+    "items": [],
+    "amounts": []
+  },
+  "spellBook": {
+    "spells": []
   },
   "name": "Lerkite",
   "maxHealth": 36,

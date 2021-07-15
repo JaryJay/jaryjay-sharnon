@@ -18,9 +18,9 @@ public class SharnonApp {
 
 	private void run() {
 		state.init();
-		System.out.print("Input a command ('help' to show commands): ");
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
 			while (!state.isQuit()) {
+				System.out.print("Input a command ('help' to show commands): ");
 				state.handle(br.readLine().split(" "));
 			}
 		} catch (IOException e) {

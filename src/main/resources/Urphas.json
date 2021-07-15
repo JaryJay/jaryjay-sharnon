@@ -3,7 +3,11 @@
   "experience": 0,
   "gameClass": "DRUID",
   "inventory": {
-    "items": {}
+    "items": [],
+    "amounts": []
+  },
+  "spellBook": {
+    "spells": []
   },
   "name": "Urphas",
   "maxHealth": 10,

@@ -9,8 +9,8 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 
 import game.actor.GameActor;
-import game.actor.GameClass;
 import game.actor.Human;
+import game.gameclass.GameClass;
 
 public class ActorLoader {
 

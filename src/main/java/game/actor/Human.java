@@ -1,18 +1,22 @@
 package game.actor;
 
-import inventory.Inventory;
+import game.gameclass.GameClass;
+import game.inventory.Inventory;
+import game.spell.SpellBook;
 
-public class Human extends GameActor implements HasLevel, HasClass {
+public class Human extends GameActor implements HasLevel, HasClass, HasSpells, HasInventory {
 
 	private int level;
 	private int experience;
 	private GameClass gameClass;
 	private Inventory inventory;
+	private SpellBook spellBook;
 
 	public Human(String name, GameClass gameClass, int maxHealth, int maxEnergy, int attack, int defence, int agility) {
 		super(name, maxHealth, maxEnergy, attack, defence, agility);
 		this.gameClass = gameClass;
 		inventory = new Inventory();
+		spellBook = new SpellBook();
 	}
 
 	@Override
@@ -31,11 +35,14 @@ public class Human extends GameActor implements HasLevel, HasClass {
 	public String toString() {
 		return name + " Level." + level + " " + gameClass.toString()
 				+ "\nExp: " + experience + "/" + (level * 50 + 50)
+				+ "\n\nStats:"
 				+ "\nHealth:  " + health + "/" + maxHealth
 				+ "\nEnergy:  " + energy + "/" + maxEnergy
 				+ "\nAttack:  " + attack
 				+ "\nDefence: " + defence
-				+ "\nAgility: " + agility;
+				+ "\nAgility: " + agility
+				+ "\n\nInventory:" + inventory
+				+ "\n\nSpell Book:\n" + spellBook;
 	}
 
 	@Override
@@ -58,10 +65,6 @@ public class Human extends GameActor implements HasLevel, HasClass {
 		this.experience = experience;
 	}
 
-	public Inventory getInventory() {
-		return inventory;
-	}
-
 	@Override
 	public GameClass getGameClass() {
 		return gameClass;
@@ -70,6 +73,16 @@ public class Human extends GameActor implements HasLevel, HasClass {
 	@Override
 	public void setGameClass(GameClass gameClass) {
 		this.gameClass = gameClass;
+	}
+
+	@Override
+	public Inventory getInventory() {
+		return inventory;
+	}
+
+	@Override
+	public SpellBook getSpellBook() {
+		return spellBook;
 	}
 
 }

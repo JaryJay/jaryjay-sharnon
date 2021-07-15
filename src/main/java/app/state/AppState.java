@@ -20,7 +20,7 @@ public abstract class AppState {
 	public final void init() {
 		commands = new ArrayList<>();
 		addCommand(new GameCommand("help", "Show a list of commands", 1, args -> printCommands()));
-		addCommand(new GameCommand("quit", "Exit Sharnon", 1, args -> setQuit(true)));
+		addCommand(new GameCommand("quit", "Exit Sharnon", 1, args -> quit()));
 		initCommands();
 		doInit();
 	}
@@ -42,7 +42,6 @@ public abstract class AppState {
 			}
 		}
 		doHandle(split);
-		System.out.print("Input a command ('help' to show commands): ");
 	}
 
 	public void doHandle(String[] split) {
@@ -63,8 +62,12 @@ public abstract class AppState {
 		return quit;
 	}
 
-	public final void setQuit(boolean quit) {
-		this.quit = quit;
+	public final void quit() {
+		onQuit();
+		this.quit = true;
+	}
+
+	public void onQuit() {
 	}
 
 	private void printCommands() {

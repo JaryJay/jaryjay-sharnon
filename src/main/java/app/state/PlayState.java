@@ -5,14 +5,15 @@ import java.util.List;
 
 import app.SharnonApp;
 import command.GameCommand;
-import game.actor.GameActor;
-import game.actor.GameClass;
-import game.actor.HasClass;
-import game.actor.HasLevel;
-import game.actor.Human;
+import game.actor.*;
+import game.gameclass.GameClass;
+import game.inventory.Item;
+import game.spell.Spell;
 import generator.CharacterNameGenerator;
 import generator.NumberGenerator;
 import loader.ActorLoader;
+import loader.ItemLoader;
+import loader.SpellLoader;
 
 public class PlayState extends AppState {
 
@@ -29,22 +30,22 @@ public class PlayState extends AppState {
 	@Override
 	public void initCommands() {
 		addCommand(new GameCommand("desc", "Describe the player", 1, args -> {
-			System.out.println(player);
+			System.out.println("\n" + player + "\n");
 		}));
 		addCommand(new GameCommand("desc", "<name>", "Describe an actor", 2, args -> {
 			GameActor actor = getActor(args[1]);
-			System.out.println(actor != null ? actor : ("No actor found with name " + args[1]));
+			System.out.println(actor != null ? ("\n" + actor) : ("Actor " + args[1] + " does not exist."));
 		}));
 		addCommand(new GameCommand("actors", "Describes all of the current actors", 1, args -> {
 			for (int i = 0; i < actors.size(); i++) {
 				GameActor actor = actors.get(i);
-				System.out.println("\n" + actor);
+				System.out.println("\n" + actor + "\n");
 			}
 		}));
 		addCommand(new GameCommand("set", "<name> <attr> <amount>", "Sets an attribute of an actor", 4, args -> {
 			GameActor actor = getActor(args[1]);
 			if (actor == null) {
-				System.out.println("No actor found with name " + args[1]);
+				System.out.println("Actor " + args[1] + " does not exist.");
 				return;
 			}
 			String value = args[3];
@@ -100,7 +101,7 @@ public class PlayState extends AppState {
 					actor.setAgility(add ? actor.getAgility() + parseInt(value) : parseInt(value));
 					break;
 				default:
-					System.out.println("No attribute foud.");
+					System.out.println("Attribute" + args[2] + " does not exist.");
 					return;
 			}
 			System.out.println("Update success.");
@@ -135,27 +136,25 @@ public class PlayState extends AppState {
 				}
 			} else if (args[1].matches("d\\d+")) {
 				try {
-					numSides = Integer.parseInt(args[1].substring(1));
-				} catch (NumberFormatException e) {
-					System.out.println("Could not parse dice");
+					numSides = parseInt(args[1].substring(1));
+				} catch (RuntimeException e) {
 					return;
 				}
 				System.out.println("Roll: " + NumberGenerator.generateNumber(numSides));
 			} else {
 				System.out.println("Invalid roll");
-				return;
 			}
 		}));
 		addCommand(new GameCommand("add", "<name>", "Add an actor", 2, args -> {
 			if (getActor(args[1]) != null) {
-				System.out.println("Actor " + args[1] + " already exists.");
+				System.out.println("Actor " + getActor(args[1]).getName() + " already exists.");
 			} else {
-				Human loadHuman = ActorLoader.loadHuman(args[1]);
-				if (loadHuman != null) {
-					actors.add(loadHuman);
-					System.out.println("Succesfully added actor " + args[1] + ".");
+				GameActor actor = ActorLoader.loadActor(args[1], Human.class);
+				if (actor != null) {
+					actors.add(actor);
+					System.out.println("Succesfully added actor " + actor.getName() + ".");
 				} else {
-					System.out.println("Actor " + args[1] + " doesn't exist.");
+					System.out.println("Actor " + args[1] + " does not exist.");
 				}
 			}
 		}));
@@ -168,11 +167,95 @@ public class PlayState extends AppState {
 				System.out.println("Actor " + args[1] + " does not exist.");
 			}
 		}));
-		addCommand(new GameCommand("create", "<name>", "Create an actor", 2, args -> {
+		addCommand(new GameCommand("create_actor", "<name>", "Create an actor", 2, args -> {
 			ActorLoader.saveActor(ActorLoader.createHuman(args[1]));
 			System.out.println("Created actor " + args[1] + ".");
 		}));
-		addCommand(new GameCommand("save", "Saves the actors", 1, args -> saveActors()));
+		addCommand(new GameCommand("item", "<name> <item> <amount>", "Add or remove items from an inventory", 4, args -> {
+			GameActor actor = getActor(args[1]);
+			if (actor == null) {
+				System.out.println("Actor " + args[1] + " does not exist.");
+				return;
+			} else if (!(actor instanceof HasInventory)) {
+				System.out.println("Actor " + actor.getName() + " does not have an inventory.");
+				return;
+			}
+			Item item = Item.valueOf(args[2]);
+			if (item == null) {
+				System.out.println("Item " + args[2] + " does not exist.");
+				return;
+			}
+			boolean add = args[3].matches("^(\\+|-)\\d+$");
+			HasInventory hasInventory = (HasInventory) actor;
+			int amount = parseInt(args[3]);
+			if (add) {
+				hasInventory.getInventory().add(item, amount);
+				System.out.println("Added " + amount + "x " + item + " to " + actor.getName() + "'s inventory.");
+			} else {
+				hasInventory.getInventory().put(item, amount);
+				System.out.println("Set amount of " + item + " to " + amount + " in " + actor.getName() + "'s inventory.");
+			}
+		}));
+		addCommand(new GameCommand("spell", "<name> <spell>", "Make an actor cast a spell", 3, args -> {
+			GameActor actor = getActor(args[1]);
+			if (actor == null) {
+				System.out.println("Actor " + args[1] + " does not exist.");
+				return;
+			} else if (!(actor instanceof HasSpells)) {
+				System.out.println("Actor " + actor.getName() + " does not have spells.");
+				return;
+			}
+			Spell spell = Spell.valueOf(args[2]);
+			if (spell == null) {
+				System.out.println("Spell " + args[2] + " does not exist.");
+			}
+			HasSpells hasSpells = (HasSpells) actor;
+			if (hasSpells.getSpellBook().contains(spell)) {
+				actor.setEnergy(actor.getEnergy() - spell.getCost());
+				System.out.println(actor.getName() + " casted spell " + spell.getName() + " for " + spell.getCost() + " energy. ");
+				System.out.println(spell);
+				System.out.println(actor.getName() + " has " + actor.getEnergy() + "/" + actor.getMaxEnergy() + " energy left.");
+			} else {
+				System.out.println(actor.getName() + " does not know " + spell.getName());
+			}
+		}));
+		addCommand(new GameCommand("learn", "<name> <spell>", "Make an actor learn a spell", 3, args -> {
+			GameActor actor = getActor(args[1]);
+			if (actor == null) {
+				System.out.println("Actor " + args[1] + " does not exist.");
+				return;
+			}
+			Spell spell = Spell.valueOf(args[2]);
+			if (spell == null) {
+				System.out.println("Spell " + args[2] + " does not exist.");
+				return;
+			}
+			if (!(actor instanceof HasSpells)) {
+				System.out.println("Actor " + actor.getName() + " can not have spells.");
+				return;
+			}
+			HasSpells hasSpells = (HasSpells) actor;
+			if (hasSpells.getSpellBook().contains(spell)) {
+				System.out.println("Actor " + actor.getName() + " already knows spell " + spell.getName() + ".");
+				return;
+			}
+			hasSpells.getSpellBook().add(spell);
+			System.out.println("Actor " + actor.getName() + " succesfully learned " + spell.getName());
+		}));
+		addCommand(new GameCommand("create_spell", "<cost> <spell> <description>", "Create a spell with a cost, name, and description.", 4, args -> {
+			int cost = parseInt(args[1]);
+			args[2] = args[2].replace('_', ' ');
+			args[3] = args[3].replace('_', ' ');
+			Spell preExisting = Spell.valueOf(args[2]);
+			if (preExisting != null) {
+				System.out.println("Spell " + preExisting.getName() + " already exists.");
+			} else {
+				Spell spell = new Spell(cost, args[2], args[3]);
+				Spell.addSpell(spell);
+				System.out.println("Successfully created spell " + spell);
+			}
+		}));
+		addCommand(new GameCommand("save", "Saves the game", 1, args -> save()));
 	}
 
 	private int parseInt(String value) {
@@ -180,12 +263,21 @@ public class PlayState extends AppState {
 			int i = Integer.parseInt(value);
 			return i;
 		} catch (NumberFormatException e) {
-			saveActors();
-			throw new RuntimeException("Could not parse value " + value + ".");
+			save();
+			System.out.println("Parse int failure. Autosaving...");
+			e.printStackTrace();
+			return 0;
 		}
 	}
 
-	private void saveActors() {
+	@Override
+	public void onQuit() {
+		save();
+	}
+
+	private void save() {
+		ItemLoader.saveItems(Item.values);
+		SpellLoader.saveSpells(Spell.values);
 		for (GameActor actor : actors) {
 			ActorLoader.saveActor(actor);
 		}

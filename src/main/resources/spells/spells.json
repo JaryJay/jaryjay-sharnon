@@ -1,0 +1,12 @@
+[
+  {
+    "cost": 4,
+    "name": "Fireball",
+    "description": "Deal 8 damage disregarding defence to a target."
+  },
+  {
+    "cost": 1,
+    "name": "Test1",
+    "description": "TestDescription"
+  }
+]
