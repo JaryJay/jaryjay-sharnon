@@ -9,6 +9,11 @@
   "spellBook": {
     "spells": []
   },
+  "accessories": [
+    null,
+    null,
+    null
+  ],
   "name": "Zey\u0027nar",
   "maxHealth": 10,
   "maxEnergy": 10,

@@ -4,33 +4,33 @@ public class GameActor {
 
 	protected String name;
 
-	protected int maxHealth;
-	protected int maxEnergy;
+	protected int baseMaxHealth;
+	protected int baseMaxEnergy;
 	protected int health;
 	protected int energy;
-	protected int attack;
-	protected int defence;
-	protected int agility;
+	protected int baseAttack;
+	protected int baseDefence;
+	protected int baseAgility;
 
 	public GameActor(String name, int maxHealth, int maxEnergy, int attack, int defence, int agility) {
 		this.name = name;
-		this.maxHealth = maxHealth;
-		this.maxEnergy = maxEnergy;
+		this.baseMaxHealth = maxHealth;
+		this.baseMaxEnergy = maxEnergy;
 		this.health = maxHealth;
 		this.energy = maxEnergy;
-		this.attack = attack;
-		this.defence = defence;
-		this.agility = agility;
+		this.baseAttack = attack;
+		this.baseDefence = defence;
+		this.baseAgility = agility;
 	}
 
 	@Override
 	public String toString() {
 		return name
-				+ "\nHealth:  " + health + "/" + maxHealth
-				+ "\nEnergy:  " + energy + "/" + maxEnergy
-				+ "\nAttack:  " + attack
-				+ "\nDefence: " + defence
-				+ "\nAgility: " + agility;
+				+ "\nHealth:  " + health + "/" + baseMaxHealth
+				+ "\nEnergy:  " + energy + "/" + baseMaxEnergy
+				+ "\nAttack:  " + baseAttack
+				+ "\nDefence: " + baseDefence
+				+ "\nAgility: " + baseAgility;
 	}
 
 	public String getName() {
@@ -42,19 +42,19 @@ public class GameActor {
 	}
 
 	public int getMaxHealth() {
-		return maxHealth;
+		return baseMaxHealth;
 	}
 
 	public void setMaxHealth(int maxHealth) {
-		this.maxHealth = maxHealth;
+		this.baseMaxHealth = maxHealth;
 	}
 
 	public int getMaxEnergy() {
-		return maxEnergy;
+		return baseMaxEnergy;
 	}
 
 	public void setMaxEnergy(int maxEnergy) {
-		this.maxEnergy = maxEnergy;
+		this.baseMaxEnergy = maxEnergy;
 	}
 
 	public int getHealth() {
@@ -74,27 +74,27 @@ public class GameActor {
 	}
 
 	public int getAttack() {
-		return attack;
+		return baseAttack;
 	}
 
 	public void setAttack(int attack) {
-		this.attack = attack;
+		this.baseAttack = attack;
 	}
 
 	public int getDefence() {
-		return defence;
+		return baseDefence;
 	}
 
 	public void setDefence(int defence) {
-		this.defence = defence;
+		this.baseDefence = defence;
 	}
 
 	public int getAgility() {
-		return agility;
+		return baseAgility;
 	}
 
 	public void setAgility(int agility) {
-		this.agility = agility;
+		this.baseAgility = agility;
 	}
 
 }

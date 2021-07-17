@@ -43,6 +43,15 @@ public class Spell implements Comparable<Spell> {
 		return String.format("(%d) %s - %s", cost, name, description);
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null || !(obj instanceof Spell)) {
+			return false;
+		}
+		Spell spell = (Spell) obj;
+		return cost == spell.cost && name == spell.name && description == spell.description;
+	}
+
 	public int getCost() {
 		return cost;
 	}

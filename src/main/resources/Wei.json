@@ -7,15 +7,69 @@
       {
         "name": "Throwing Knife",
         "description": "A razor sharp knife with a ring on the end, suitable for throwing.",
-        "value": 0.2
+        "value": 0.2,
+        "maxHealthModifier": 0,
+        "maxEnergyModifier": 0,
+        "attackModifier": 0,
+        "defenceModifier": 0,
+        "agilityModifier": 0
       },
       {
         "name": "Communicator Artifact",
         "description": "A heavy steel artifact used to contact other similar artifacts.",
-        "value": 35.0
+        "value": 35.0,
+        "maxHealthModifier": 0,
+        "maxEnergyModifier": 0,
+        "attackModifier": 0,
+        "defenceModifier": 0,
+        "agilityModifier": 0
+      },
+      {
+        "name": "Tent",
+        "description": "A cloth tent",
+        "value": 10.0,
+        "maxHealthModifier": 0,
+        "maxEnergyModifier": 0,
+        "attackModifier": 0,
+        "defenceModifier": 0,
+        "agilityModifier": 0
+      },
+      {
+        "name": "Amulet of Resurrection",
+        "description": "A magical amulet that prevents the wearer from dying once.",
+        "value": 3000.0,
+        "maxHealthModifier": 0,
+        "maxEnergyModifier": 0,
+        "attackModifier": 0,
+        "defenceModifier": 0,
+        "agilityModifier": 0
+      },
+      {
+        "name": "Health Potion",
+        "description": "A potion of crimson liquid that restores 15 health to the drinker.",
+        "value": 12.0,
+        "maxHealthModifier": 0,
+        "maxEnergyModifier": 0,
+        "attackModifier": 0,
+        "defenceModifier": 0,
+        "agilityModifier": 0
+      },
+      {
+        "name": "Elemental sword",
+        "description": "A shiny sword hilt that, when activated, forms a blade of the wielder\u0027s element.",
+        "value": 800.0,
+        "maxHealthModifier": 0,
+        "maxEnergyModifier": 0,
+        "attackModifier": 0,
+        "defenceModifier": 0,
+        "agilityModifier": 0
       }
     ],
     "amounts": [
+      12,
+      1,
+      1,
+      1,
       12,
       1
     ]
@@ -29,12 +83,17 @@
       }
     ]
   },
+  "accessories": [
+    null,
+    null,
+    null
+  ],
   "name": "Wei",
-  "maxHealth": 37,
-  "maxEnergy": 28,
-  "health": 37,
+  "baseMaxHealth": 34,
+  "baseMaxEnergy": 0,
+  "health": 34,
   "energy": 28,
-  "attack": 11,
-  "defence": 6,
-  "agility": 11
+  "baseAttack": 11,
+  "baseDefence": 6,
+  "baseAgility": 10
 }

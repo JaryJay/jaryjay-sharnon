@@ -6,32 +6,34 @@ import loader.ItemLoader;
 
 public class Item implements Comparable<Item> {
 
-	public static TreeSet<Item> values;
-
-	static {
-		if ((values = ItemLoader.loadItems()) == null) {
-			System.out.println("Could not load items.");
-			values = new TreeSet<>();
-			addItem(new Item("Gold Coin", "A shiny golden coin", 1));
-			addItem(new Item("Ration", "A fat ration containing potatoes, meat, and carrots", 1));
-			addItem(new Item("Tent", "A cloth tent", 10));
-			addItem(new Item("Amulet of Resurrection", "A magical amulet that prevents the wearer from dying once.", 3000));
-			addItem(new Item("Health Potion", "A potion of crimson liquid that restores 15 health to the drinker.", 12));
-			addItem(new Item("Potion Belt", "A belt for holding potions.", 3));
-			addItem(new Item("Throwing Knife", "A razor sharp knife with a ring on the end, suitable for throwing.", 0.2f));
-			addItem(new Item("Map of Sharnon", "A large parchment map of Sharnon.", 5));
-			addItem(new Item("Communicator Artifact", "A heavy steel artifact used to contact other similar artifacts.", 35));
-		}
-	}
+	public static TreeSet<Item> values = ItemLoader.loadItems();
 
 	private String name;
 	private String description;
 	private float value;
 
+	private int maxHealthModifier;
+	private int maxEnergyModifier;
+	private int attackModifier;
+	private int defenceModifier;
+	private int agilityModifier;
+
 	public Item(String name, String description, float value) {
-		this.name = name;
-		this.description = description;
+		this(name, description, value, 0, 0, 0, 0, 0);
+	}
+
+	public Item(String name, String description, float value,
+			int maxHealthModifier, int maxEnergyModifier, int attackModifier, int defenceModifier, int agilityModifier) {
+		name = name.replace('_', ' ');
+		description = description.replace('_', ' ');
+		this.name = name.substring(0, 1).toUpperCase() + name.substring(1);
+		this.description = description.substring(0, 1).toUpperCase() + description.substring(1);
 		this.value = value;
+		this.maxHealthModifier = maxHealthModifier;
+		this.maxEnergyModifier = maxEnergyModifier;
+		this.attackModifier = attackModifier;
+		this.defenceModifier = defenceModifier;
+		this.agilityModifier = agilityModifier;
 	}
 
 	@Override
@@ -62,6 +64,46 @@ public class Item implements Comparable<Item> {
 
 	public float getValue() {
 		return value;
+	}
+
+	public int getMaxHealthModifier() {
+		return maxHealthModifier;
+	}
+
+	public void setMaxHealthModifier(int maxHealthModifier) {
+		this.maxHealthModifier = maxHealthModifier;
+	}
+
+	public int getMaxEnergyModifier() {
+		return maxEnergyModifier;
+	}
+
+	public void setMaxEnergyModifier(int maxEnergyModifier) {
+		this.maxEnergyModifier = maxEnergyModifier;
+	}
+
+	public int getAttackModifier() {
+		return attackModifier;
+	}
+
+	public void setAttackModifier(int attackModifier) {
+		this.attackModifier = attackModifier;
+	}
+
+	public int getDefenceModifier() {
+		return defenceModifier;
+	}
+
+	public void setDefenceModifier(int defenceModifier) {
+		this.defenceModifier = defenceModifier;
+	}
+
+	public int getAgilityModifier() {
+		return agilityModifier;
+	}
+
+	public void setAgilityModifier(int agilityModifier) {
+		this.agilityModifier = agilityModifier;
 	}
 
 	@Override

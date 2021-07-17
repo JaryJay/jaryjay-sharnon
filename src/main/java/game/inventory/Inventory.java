@@ -30,26 +30,31 @@ public class Inventory {
 		return items.isEmpty();
 	}
 
-	public Integer get(Object key) {
+	public int get(Object key) {
 		int index = items.indexOf(key);
-		return index >= 0 ? amounts.get(index) : null;
+		return index >= 0 ? amounts.get(index) : 0;
 	}
 
 	public void add(Item key, Integer value) {
 		int index = items.indexOf(key);
 		if (index >= 0) {
-			amounts.set(index, value + amounts.get(index));
+			put(key, get(key) + value);
 		} else {
 			put(key, value);
 		}
 
 	}
 
-	public Integer put(Item key, Integer value) {
+	public int put(Item key, Integer value) {
 		int index = items.indexOf(key);
 		if (index >= 0) {
 			Integer original = amounts.get(index);
-			amounts.set(index, value);
+			if (value == 0) {
+				items.remove(index);
+				amounts.remove(index);
+			} else {
+				amounts.set(index, value);
+			}
 			return original;
 		} else {
 			items.add(key);
@@ -58,7 +63,7 @@ public class Inventory {
 		}
 	}
 
-	public Integer remove(Object key) {
+	public int remove(Object key) {
 		int index = items.indexOf(key);
 		if (index >= 0) {
 			items.remove(index);

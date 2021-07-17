@@ -2,9 +2,10 @@ package game.actor;
 
 import game.gameclass.GameClass;
 import game.inventory.Inventory;
+import game.inventory.Item;
 import game.spell.SpellBook;
 
-public class Human extends GameActor implements HasLevel, HasClass, HasSpells, HasInventory {
+public class Human extends GameActor implements HasLevel, HasClass, HasSpells, HasInventory, HasEquipment {
 
 	private int level;
 	private int experience;
@@ -12,11 +13,19 @@ public class Human extends GameActor implements HasLevel, HasClass, HasSpells, H
 	private Inventory inventory;
 	private SpellBook spellBook;
 
+	private Item primaryWeapon;
+	private Item secondaryWeapon;
+	private Item armour;
+	private Item helmet;
+	private Item footwear;
+	private Item[] accessories;
+
 	public Human(String name, GameClass gameClass, int maxHealth, int maxEnergy, int attack, int defence, int agility) {
 		super(name, maxHealth, maxEnergy, attack, defence, agility);
 		this.gameClass = gameClass;
 		inventory = new Inventory();
 		spellBook = new SpellBook();
+		accessories = new Item[3];
 	}
 
 	@Override
@@ -33,14 +42,26 @@ public class Human extends GameActor implements HasLevel, HasClass, HasSpells, H
 
 	@Override
 	public String toString() {
+		int maxHealthModifier = getMaxHealthModifier();
+		int maxEnergyModifier = getMaxEnergyModifier();
+		int attackModifier = getAttackModifier();
+		int defenceModifier = getDefenceModifier();
+		int agilityModifier = getAgilityModifier();
+		String healthText = "Health:  " + health + "/" + (baseMaxHealth + maxHealthModifier)
+				+ " (" + (maxHealthModifier < 0 ? "" : "+") + maxHealthModifier + ")";
+		String energyText = "Energy:  " + energy + "/" + (energy + maxEnergyModifier)
+				+ " (" + (maxEnergyModifier < 0 ? "" : "+") + maxEnergyModifier + ")";
+		String attackText = "Attack: " + (baseAttack + attackModifier) + " (" + (attackModifier < 0 ? "" : "+") + attackModifier + ")";
+		String defenceText = "Defence: " + (baseDefence + defenceModifier) + " (" + (defenceModifier < 0 ? "" : "+") + defenceModifier + ")";
+		String agilityText = "Agility: " + (baseAgility + agilityModifier) + " (" + (agilityModifier < 0 ? "" : "+") + agilityModifier + ")";
 		return name + " Level." + level + " " + gameClass.toString()
 				+ "\nExp: " + experience + "/" + (level * 50 + 50)
 				+ "\n\nStats:"
-				+ "\nHealth:  " + health + "/" + maxHealth
-				+ "\nEnergy:  " + energy + "/" + maxEnergy
-				+ "\nAttack:  " + attack
-				+ "\nDefence: " + defence
-				+ "\nAgility: " + agility
+				+ "\n" + healthText
+				+ "\n" + energyText
+				+ "\n" + attackText
+				+ "\n" + defenceText
+				+ "\n" + agilityText
 				+ "\n\nInventory:" + inventory
 				+ "\n\nSpell Book:\n" + spellBook;
 	}
@@ -83,6 +104,61 @@ public class Human extends GameActor implements HasLevel, HasClass, HasSpells, H
 	@Override
 	public SpellBook getSpellBook() {
 		return spellBook;
+	}
+
+	@Override
+	public Item getPrimaryWeapon() {
+		return primaryWeapon;
+	}
+
+	@Override
+	public void setPrimaryWeapon(Item primaryWeapon) {
+		this.primaryWeapon = primaryWeapon;
+	}
+
+	@Override
+	public Item getSecondaryWeapon() {
+		return secondaryWeapon;
+	}
+
+	@Override
+	public void setSecondaryWeapon(Item secondaryWeapon) {
+		this.secondaryWeapon = secondaryWeapon;
+	}
+
+	@Override
+	public Item getArmour() {
+		return armour;
+	}
+
+	@Override
+	public void setArmour(Item armour) {
+		this.armour = armour;
+	}
+
+	@Override
+	public Item getHelmet() {
+		return helmet;
+	}
+
+	@Override
+	public void setHelmet(Item helmet) {
+		this.helmet = helmet;
+	}
+
+	@Override
+	public Item getFootwear() {
+		return footwear;
+	}
+
+	@Override
+	public void setFootwear(Item footwear) {
+		this.footwear = footwear;
+	}
+
+	@Override
+	public Item[] getAccessories() {
+		return accessories;
 	}
 
 }

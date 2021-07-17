@@ -9,6 +9,11 @@
   "spellBook": {
     "spells": []
   },
+  "accessories": [
+    null,
+    null,
+    null
+  ],
   "name": "Lerkite",
   "maxHealth": 36,
   "maxEnergy": 42,

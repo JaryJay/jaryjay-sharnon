@@ -9,6 +9,11 @@
   "spellBook": {
     "spells": []
   },
+  "accessories": [
+    null,
+    null,
+    null
+  ],
   "name": "Noya",
   "maxHealth": 10,
   "maxEnergy": 10,
