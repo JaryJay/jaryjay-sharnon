@@ -2,6 +2,8 @@ package game.spell;
 
 import java.util.TreeSet;
 
+import org.apache.commons.text.WordUtils;
+
 import loader.SpellLoader;
 
 public class Spell implements Comparable<Spell> {
@@ -21,7 +23,7 @@ public class Spell implements Comparable<Spell> {
 
 	public Spell(int cost, String name, String description) {
 		this.cost = cost;
-		this.name = name.substring(0, 1).toUpperCase() + name.substring(1);
+		this.name = WordUtils.capitalizeFully(name);
 		this.description = description.substring(0, 1).toUpperCase() + description.substring(1);
 	}
 
@@ -49,7 +51,7 @@ public class Spell implements Comparable<Spell> {
 			return false;
 		}
 		Spell spell = (Spell) obj;
-		return cost == spell.cost && name == spell.name && description == spell.description;
+		return cost == spell.cost && name.equals(spell.name) && description.equals(spell.description);
 	}
 
 	public int getCost() {

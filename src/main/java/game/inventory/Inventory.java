@@ -79,6 +79,10 @@ public class Inventory {
 		amounts.clear();
 	}
 
+	public void sort() {
+		amounts.sort((x, y) -> Integer.compare(x, y));
+	}
+
 	public List<Item> getItems() {
 		return items;
 	}

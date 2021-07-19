@@ -63,6 +63,26 @@
         "attackModifier": 0,
         "defenceModifier": 0,
         "agilityModifier": 0
+      },
+      {
+        "name": "Dwarven shield",
+        "description": "A beautiful dwarven crafted large, red, rectangular shield.",
+        "value": 200.0,
+        "maxHealthModifier": 0,
+        "maxEnergyModifier": 0,
+        "attackModifier": -1,
+        "defenceModifier": 0,
+        "agilityModifier": 0
+      },
+      {
+        "name": "Etherium helmet",
+        "description": "A light helmet made of etherium that grants water breathing for up to two hours.",
+        "value": 1200.0,
+        "maxHealthModifier": 0,
+        "maxEnergyModifier": 0,
+        "attackModifier": 0,
+        "defenceModifier": 0,
+        "agilityModifier": 0
       }
     ],
     "amounts": [
@@ -71,6 +91,8 @@
       1,
       1,
       12,
+      1,
+      1,
       1
     ]
   },
@@ -83,17 +105,46 @@
       }
     ]
   },
+  "primaryWeapon": {
+    "name": "Elemental sword",
+    "description": "A shiny sword hilt that, when activated, forms a blade of the wielder\u0027s element.",
+    "value": 800.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 7,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  "helmet": {
+    "name": "Etherium helmet",
+    "description": "A light helmet made of etherium that grants water breathing for up to two hours.",
+    "value": 1200.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
   "accessories": [
-    null,
+    {
+      "name": "Amulet of Resurrection",
+      "description": "A magical amulet that prevents the wearer from dying once.",
+      "value": 3000.0,
+      "maxHealthModifier": 0,
+      "maxEnergyModifier": 0,
+      "attackModifier": 0,
+      "defenceModifier": 0,
+      "agilityModifier": 0
+    },
     null,
     null
   ],
   "name": "Wei",
   "baseMaxHealth": 34,
-  "baseMaxEnergy": 0,
-  "health": 34,
+  "baseMaxEnergy": 28,
+  "health": 37,
   "energy": 28,
   "baseAttack": 11,
-  "baseDefence": 6,
-  "baseAgility": 10
+  "baseDefence": 0,
+  "baseAgility": 0
 }

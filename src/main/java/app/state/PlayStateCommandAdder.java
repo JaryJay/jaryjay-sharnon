@@ -34,7 +34,7 @@ public class PlayStateCommandAdder {
 				System.out.println("\n" + actor + "\n");
 			}
 		}));
-		playState.addCommand(new GameCommand("set", "<actor> <attr> <amount>", "Sets an attribute of an actor", 4, args -> {
+		playState.addCommand(new GameCommand("set_actor_attr", "<actor> <attr> <amount>", "Sets an attribute of an actor", 4, args -> {
 			GameActor actor = getActor(args[1]);
 			if (actor == null) {
 				System.out.println("Actor " + args[1] + " does not exist.");
@@ -152,12 +152,22 @@ public class PlayStateCommandAdder {
 				System.out.println("Set amount of " + item + " to " + amount + " in " + actor.getName() + "'s inventory.");
 			}
 		}));
+		playState.addCommand(new GameCommand("set_item_attr", "<item> <attr> <value>", "Set the attribute of an item", 4, args -> {
+			Item item = Item.valueOf(args[1]);
+			if (item == null) {
+				System.out.println("Item " + args[1] + " does not exist.");
+			}
+
+			if (item.set(args[2], parseInt(args[3]))) {
+				System.out.println("Successfully set " + args[2]);
+			}
+		}));
 		playState.addCommand(new GameCommand("inspect_item", "<item>", "Describe an item", 2, args -> {
 			Item item = Item.valueOf(args[1]);
 			if (item == null) {
 				System.out.println("Item " + args[1] + " does not exist.");
 			} else {
-				System.out.println(item.getName() + "\n" + item.getDescription() + "\nValue: " + item.getValue() + " Gold Coin(s)");
+				System.out.println(item.getFullDescription());
 			}
 		}));
 		playState.addCommand(new GameCommand("create_item", "<item> <description> <value>", "Create an item", 4, args -> {
@@ -273,9 +283,9 @@ public class PlayStateCommandAdder {
 	}
 
 	public void addMiscCommands() {
-		playState.addCommand(new GameCommand("names", "Generate 10 names", 1, args -> {
-			for (int i = 0; i < 10; i++) {
-				System.out.println(CharacterNameGenerator.generateCharacterName());
+		playState.addCommand(new GameCommand("names", "Generate 15 names", 1, args -> {
+			for (int i = 0; i < 15; i++) {
+				System.out.println(CharacterNameGenerator.generateCharacterName(1, 4));
 			}
 		}));
 		playState.addCommand(new GameCommand("roll", "[<number of dice>]d<number of faces>", "Roll a number of dice", 2, args -> {

@@ -2,6 +2,8 @@ package game.inventory;
 
 import java.util.TreeSet;
 
+import org.apache.commons.text.WordUtils;
+
 import loader.ItemLoader;
 
 public class Item implements Comparable<Item> {
@@ -24,9 +26,8 @@ public class Item implements Comparable<Item> {
 
 	public Item(String name, String description, float value,
 			int maxHealthModifier, int maxEnergyModifier, int attackModifier, int defenceModifier, int agilityModifier) {
-		name = name.replace('_', ' ');
+		this.name = WordUtils.capitalizeFully(name.replace('_', ' '));
 		description = description.replace('_', ' ');
-		this.name = name.substring(0, 1).toUpperCase() + name.substring(1);
 		this.description = description.substring(0, 1).toUpperCase() + description.substring(1);
 		this.value = value;
 		this.maxHealthModifier = maxHealthModifier;
@@ -36,9 +37,101 @@ public class Item implements Comparable<Item> {
 		this.agilityModifier = agilityModifier;
 	}
 
+	public Integer get(String attribute) {
+		switch (attribute.toLowerCase()) {
+			case "maxhealthmodifier":
+			case "max_health_modifier":
+			case "max_health":
+			case "maxhealth":
+				return maxHealthModifier;
+			case "maxenergymodifier":
+			case "max_energy_modifier":
+			case "max_energy":
+			case "maxenergy":
+				return maxEnergyModifier;
+			case "attack":
+			case "attack_modifier":
+			case "attackmodifier":
+				return attackModifier;
+			case "defence":
+			case "defence_modifier":
+			case "defencemodifier":
+				return defenceModifier;
+			case "agility":
+			case "agility_modifier":
+			case "agilitymodifier":
+				return agilityModifier;
+			default:
+				return null;
+		}
+	}
+
+	public boolean set(String attribute, int value) {
+		switch (attribute.toLowerCase()) {
+			case "maxhealthmodifier":
+			case "max_health_modifier":
+			case "max_health":
+			case "maxhealth":
+				maxHealthModifier = value;
+				return true;
+			case "maxenergymodifier":
+			case "max_energy_modifier":
+			case "max_energy":
+			case "maxenergy":
+				maxEnergyModifier = value;
+				return true;
+			case "attack":
+			case "attack_modifier":
+			case "attackmodifier":
+				attackModifier = value;
+				return true;
+			case "defence":
+			case "defence_modifier":
+			case "defencemodifier":
+				defenceModifier = value;
+				return true;
+			case "agility":
+			case "agility_modifier":
+			case "agilitymodifier":
+				agilityModifier = value;
+				return true;
+			default:
+				return false;
+		}
+	}
+
+	public boolean add(String attribute, int value) {
+		Integer attributeValue = get(attribute);
+		return attributeValue == null ? false : set(attribute, attributeValue + value);
+	}
+
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	public String getFullDescription() {
+		return name + "\n" + description + "\nValue: " + value + " Gold Coins"
+				+ "\nMax Health Modifier: " + maxHealthModifier
+				+ "\nMax Energy Modifier: " + maxEnergyModifier
+				+ "\nAttack Modifier:     " + attackModifier
+				+ "\nDefence Modifier:    " + defenceModifier
+				+ "\nAgility Modifier:    " + agilityModifier;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (obj instanceof Item) {
+			Item item = (Item) obj;
+			return name.equals(item.name) && description.equals(item.description) && value == item.value
+					&& maxHealthModifier == item.maxHealthModifier && maxEnergyModifier == item.maxEnergyModifier
+					&& attackModifier == item.attackModifier && defenceModifier == item.defenceModifier
+					&& agilityModifier == item.agilityModifier;
+		}
+		return false;
 	}
 
 	public static Item valueOf(String name) {

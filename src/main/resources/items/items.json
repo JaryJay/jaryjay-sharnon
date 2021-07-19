@@ -10,6 +10,36 @@
     "agilityModifier": 0
   },
   {
+    "name": "Boomerang",
+    "description": "A metal boomerang.",
+    "value": 4.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 3,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Climbing Tool Set",
+    "description": "A set of climbing tools including spikes and rope.",
+    "value": 3.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Coil of Rope",
+    "description": "A long coil of rope.",
+    "value": 2.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
     "name": "Communicator Artifact",
     "description": "A heavy steel artifact used to contact other similar artifacts.",
     "value": 35.0,
@@ -20,13 +50,53 @@
     "agilityModifier": 0
   },
   {
-    "name": "Elemental sword",
+    "name": "Dwarven Shield",
+    "description": "A beautiful dwarven crafted large, red, rectangular shield.",
+    "value": 180.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": -1,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Elemental Sword",
     "description": "A shiny sword hilt that, when activated, forms a blade of the wielder\u0027s element.",
     "value": 800.0,
     "maxHealthModifier": 0,
     "maxEnergyModifier": 0,
-    "attackModifier": 0,
+    "attackModifier": 7,
     "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Energy Shield",
+    "description": "A gadget that, when activated, forms a shield of energy.",
+    "value": 400.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 6,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Etherium Helmet",
+    "description": "A light helmet made of etherium that grants water breathing for up to two hours.",
+    "value": 1200.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 9,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Fire-hardened Armour",
+    "description": "A fire-hardened chestplate forged by a legendary blacksmith.",
+    "value": 360.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 7,
     "agilityModifier": 0
   },
   {
@@ -40,6 +110,16 @@
     "agilityModifier": 0
   },
   {
+    "name": "Gurnish Bracer",
+    "description": "A sturdy bracer from a Gurnish stone.",
+    "value": 360.0,
+    "maxHealthModifier": 3,
+    "maxEnergyModifier": 0,
+    "attackModifier": 3,
+    "defenceModifier": 3,
+    "agilityModifier": 0
+  },
+  {
     "name": "Health Potion",
     "description": "A potion of crimson liquid that restores 15 health to the drinker.",
     "value": 12.0,
@@ -50,12 +130,42 @@
     "agilityModifier": 0
   },
   {
+    "name": "Hebluff Chain Armour",
+    "description": "A piece of chain armour made in Hebluff.",
+    "value": 50.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 7,
+    "agilityModifier": 0
+  },
+  {
     "name": "Map of Sharnon",
     "description": "A large parchment map of Sharnon.",
     "value": 5.0,
     "maxHealthModifier": 0,
     "maxEnergyModifier": 0,
     "attackModifier": 0,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Mithril Boots",
+    "description": "A pair of mithril boots enchanted by Merlin the mage to give the wielder extreme speed.",
+    "value": 360.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 2,
+    "agilityModifier": 3
+  },
+  {
+    "name": "Mithril Scythe",
+    "description": "A scythe with a mithril tip.",
+    "value": 125.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 5,
     "defenceModifier": 0,
     "agilityModifier": 0
   },
@@ -80,6 +190,26 @@
     "agilityModifier": 0
   },
   {
+    "name": "Smoke Bomb",
+    "description": "A bomb that erupts in smoke when thrown.",
+    "value": 7.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Spyglass",
+    "description": "A pirate\u0027s spyglass.",
+    "value": 5.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
     "name": "Tent",
     "description": "A cloth tent",
     "value": 10.0,
@@ -93,6 +223,16 @@
     "name": "Throwing Knife",
     "description": "A razor sharp knife with a ring on the end, suitable for throwing.",
     "value": 0.2,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Whistle",
+    "description": "A cheap wooden whistle.",
+    "value": 1.0,
     "maxHealthModifier": 0,
     "maxEnergyModifier": 0,
     "attackModifier": 0,

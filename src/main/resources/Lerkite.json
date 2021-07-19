@@ -15,11 +15,11 @@
     null
   ],
   "name": "Lerkite",
-  "maxHealth": 36,
-  "maxEnergy": 42,
+  "baseMaxHealth": 36,
+  "baseMaxEnergy": 42,
   "health": 36,
   "energy": 42,
-  "attack": 18,
-  "defence": 19,
-  "agility": 11
+  "baseAttack": 0,
+  "baseDefence": 0,
+  "baseAgility": 0
 }

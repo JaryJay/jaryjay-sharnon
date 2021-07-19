@@ -49,7 +49,7 @@ public class Human extends GameActor implements HasLevel, HasClass, HasSpells, H
 		int agilityModifier = getAgilityModifier();
 		String healthText = "Health:  " + health + "/" + (baseMaxHealth + maxHealthModifier)
 				+ " (" + (maxHealthModifier < 0 ? "" : "+") + maxHealthModifier + ")";
-		String energyText = "Energy:  " + energy + "/" + (energy + maxEnergyModifier)
+		String energyText = "Energy:  " + energy + "/" + (baseMaxEnergy + maxEnergyModifier)
 				+ " (" + (maxEnergyModifier < 0 ? "" : "+") + maxEnergyModifier + ")";
 		String attackText = "Attack: " + (baseAttack + attackModifier) + " (" + (attackModifier < 0 ? "" : "+") + attackModifier + ")";
 		String defenceText = "Defence: " + (baseDefence + defenceModifier) + " (" + (defenceModifier < 0 ? "" : "+") + defenceModifier + ")";
@@ -158,6 +158,7 @@ public class Human extends GameActor implements HasLevel, HasClass, HasSpells, H
 
 	@Override
 	public Item[] getAccessories() {
+		accessories = accessories == null ? new Item[3] : accessories;
 		return accessories;
 	}
 
