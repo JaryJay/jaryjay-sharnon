@@ -1,13 +1,13 @@
 {
-  "level": 20,
-  "experience": 1000,
+  "level": 21,
+  "experience": 50,
   "gameClass": "WARRIOR",
   "inventory": {
     "itemsToAmounts": {
       "Tent": 1,
       "Amulet of Resurrection": 1,
       "Energy Shield": 1,
-      "Health Potion": 14,
+      "Health Potion": 12,
       "Potion Belt": 1,
       "Boomerang": 1,
       "Mithril Boots": 1,
@@ -23,7 +23,8 @@
       "Etherium Helmet": 1,
       "Ring of Replenishing Energy": 1,
       "Fire-hardened Armour": 1,
-      "Ration": 7
+      "Ration": 15,
+      "Gold Coin": 118
     }
   },
   "spellBook": {
@@ -154,11 +155,11 @@
     null
   ],
   "name": "Wei",
-  "baseMaxHealth": 34,
-  "baseMaxEnergy": 28,
-  "health": 37,
-  "energy": 28,
-  "baseAttack": 8,
+  "baseMaxHealth": 35,
+  "baseMaxEnergy": 30,
+  "health": 38,
+  "energy": 22,
+  "baseAttack": 9,
   "baseDefence": 6,
   "baseAgility": 10
 }

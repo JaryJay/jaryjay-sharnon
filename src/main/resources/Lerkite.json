@@ -79,8 +79,8 @@
   "name": "Lerkite",
   "baseMaxHealth": 36,
   "baseMaxEnergy": 32,
-  "health": 36,
-  "energy": 42,
+  "health": 33,
+  "energy": 35,
   "baseAttack": 18,
   "baseDefence": 19,
   "baseAgility": 10

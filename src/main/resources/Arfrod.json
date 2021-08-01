@@ -52,7 +52,7 @@
   "name": "Arfrod",
   "baseMaxHealth": 20,
   "baseMaxEnergy": 5,
-  "health": 20,
+  "health": 11,
   "energy": 5,
   "baseAttack": 14,
   "baseDefence": 8,
