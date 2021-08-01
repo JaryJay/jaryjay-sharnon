@@ -1,0 +1,60 @@
+{
+  "level": 8,
+  "experience": 200,
+  "gameClass": "WARRIOR",
+  "inventory": {
+    "itemsToAmounts": {
+      "Steel Sword": 1,
+      "Leather Vest": 1,
+      "Health Potion": 4,
+      "Whistle": 1,
+      "Arfrod Helmet": 1
+    }
+  },
+  "spellBook": {
+    "spells": []
+  },
+  "primaryWeapon": {
+    "name": "Steel Sword",
+    "description": "A shiny steel sword.",
+    "value": 3.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 3,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  "armour": {
+    "name": "Leather Vest",
+    "description": "A comfortable padded leather vest.",
+    "value": 20.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 1,
+    "agilityModifier": 2
+  },
+  "helmet": {
+    "name": "Arfrod Helmet",
+    "description": "A metal helmet with the Arfrod emblem on the front.",
+    "value": 10.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 1,
+    "defenceModifier": 2,
+    "agilityModifier": 0
+  },
+  "accessories": [
+    null,
+    null,
+    null
+  ],
+  "name": "Arfrod",
+  "baseMaxHealth": 20,
+  "baseMaxEnergy": 5,
+  "health": 20,
+  "energy": 5,
+  "baseAttack": 14,
+  "baseDefence": 8,
+  "baseAgility": 2
+}

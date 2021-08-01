@@ -1,13 +1,59 @@
 {
   "level": 35,
-  "experience": 0,
+  "experience": 200,
   "gameClass": "DRUID",
   "inventory": {
-    "items": [],
-    "amounts": []
+    "itemsToAmounts": {
+      "Communicator Artifact": 1,
+      "Gold Coin": 233,
+      "Ration": 18,
+      "Mithril Claws": 1,
+      "Druid Cloak": 1
+    }
   },
   "spellBook": {
-    "spells": []
+    "spells": [
+      {
+        "cost": 9,
+        "name": "Pyroblast",
+        "description": "Deal 18 damage disregarding defence to a target."
+      },
+      {
+        "cost": 5,
+        "name": "Shapeshift",
+        "description": "Transform into any animal."
+      },
+      {
+        "cost": 5,
+        "name": "Stubbornness",
+        "description": "Gain 10 defence until the start of your next turn."
+      },
+      {
+        "cost": 5,
+        "name": "Tangle",
+        "description": "Grow thorns under a target standing on the ground. The target needs to spend 1 action to escape the thorns. While the target is tangled, they have 0 agility and cannot move."
+      }
+    ]
+  },
+  "primaryWeapon": {
+    "name": "Mithril Claws",
+    "description": "A pair of claws made of pure mithril.",
+    "value": 120.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 5,
+    "defenceModifier": 0,
+    "agilityModifier": 1
+  },
+  "armour": {
+    "name": "Druid Cloak",
+    "description": "A druid\u0027s majestic cloak of animal hides and plant material.",
+    "value": 75.0,
+    "maxHealthModifier": 4,
+    "maxEnergyModifier": 0,
+    "attackModifier": 1,
+    "defenceModifier": 6,
+    "agilityModifier": 0
   },
   "accessories": [
     null,
@@ -15,11 +61,11 @@
     null
   ],
   "name": "Urphas",
-  "maxHealth": 10,
-  "maxEnergy": 10,
-  "health": 10,
-  "energy": 10,
-  "attack": 5,
-  "defence": 6,
-  "agility": 0
+  "baseMaxHealth": 34,
+  "baseMaxEnergy": 38,
+  "health": 38,
+  "energy": 38,
+  "baseAttack": 18,
+  "baseDefence": 12,
+  "baseAgility": 10
 }

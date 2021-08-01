@@ -3,23 +3,58 @@
   "experience": 0,
   "gameClass": "CLERIC",
   "inventory": {
-    "items": [],
-    "amounts": []
+    "itemsToAmounts": {
+      "Communicator Artifact": 1,
+      "Gold Coin": 170,
+      "Ration": 8,
+      "Staff": 1,
+      "Ember Ring": 1
+    }
   },
   "spellBook": {
-    "spells": []
+    "spells": [
+      {
+        "cost": 4,
+        "name": "Curse",
+        "description": "Until the start of your next turn, a target takes double damage."
+      },
+      {
+        "cost": 4,
+        "name": "Lesser Heal",
+        "description": "Restore 8 health to a target"
+      }
+    ]
+  },
+  "primaryWeapon": {
+    "name": "Staff",
+    "description": "A tall oaken staff.",
+    "value": 8.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 4,
+    "attackModifier": 1,
+    "defenceModifier": 0,
+    "agilityModifier": 0
   },
   "accessories": [
-    null,
+    {
+      "name": "Ember Ring",
+      "description": "A ring with a blazing red ruby. Gives +2 health.",
+      "value": 25.0,
+      "maxHealthModifier": 2,
+      "maxEnergyModifier": 0,
+      "attackModifier": 0,
+      "defenceModifier": 0,
+      "agilityModifier": 0
+    },
     null,
     null
   ],
   "name": "Sang",
-  "maxHealth": 10,
-  "maxEnergy": 10,
-  "health": 10,
-  "energy": 10,
-  "attack": 5,
-  "defence": 6,
-  "agility": 0
+  "baseMaxHealth": 27,
+  "baseMaxEnergy": 41,
+  "health": 29,
+  "energy": 45,
+  "baseAttack": 12,
+  "baseDefence": 15,
+  "baseAgility": 5
 }

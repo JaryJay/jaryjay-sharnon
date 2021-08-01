@@ -3,11 +3,73 @@
   "experience": 0,
   "gameClass": "WARMAGE",
   "inventory": {
-    "items": [],
-    "amounts": []
+    "itemsToAmounts": {
+      "Mace": 1,
+      "Dragon Skin Cloak": 1,
+      "Jade Bracelet": 1,
+      "Communicator Artifact": 1,
+      "Gold Coin": 460,
+      "Ration": 12
+    }
   },
   "spellBook": {
-    "spells": []
+    "spells": [
+      {
+        "cost": 2,
+        "name": "Burn",
+        "description": "Light a target on fire."
+      },
+      {
+        "cost": 4,
+        "name": "Fire Shield",
+        "description": "Gain 10 defence until the start of your next turn. Until the start of your next turn, deal 2 damage disregarding defence to anyone that damages you."
+      },
+      {
+        "cost": 4,
+        "name": "Fireball",
+        "description": "Deal 8 damage disregarding defence to a target."
+      },
+      {
+        "cost": 3,
+        "name": "Freeze",
+        "description": "Freeze a target until your next turn."
+      },
+      {
+        "cost": 4,
+        "name": "Lightning Bolt",
+        "description": "Deal 25 damage to a target."
+      },
+      {
+        "cost": 1,
+        "name": "Missile Spell",
+        "description": "Create 3 missiles that deal 1 damage each disregarding defence."
+      },
+      {
+        "cost": 4,
+        "name": "Plant Armour",
+        "description": "A target gets +4 armour for 2 turns."
+      }
+    ]
+  },
+  "primaryWeapon": {
+    "name": "Mace",
+    "description": "An iron mace with a smooth wooden handle",
+    "value": 10.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 4,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  "armour": {
+    "name": "Dragon Skin Cloak",
+    "description": "A magnificent cloak crafted from the hide of a dragon.",
+    "value": 1500.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 10,
+    "attackModifier": 0,
+    "defenceModifier": 5,
+    "agilityModifier": 0
   },
   "accessories": [
     null,
@@ -16,10 +78,10 @@
   ],
   "name": "Lerkite",
   "baseMaxHealth": 36,
-  "baseMaxEnergy": 42,
+  "baseMaxEnergy": 32,
   "health": 36,
   "energy": 42,
-  "baseAttack": 0,
-  "baseDefence": 0,
-  "baseAgility": 0
+  "baseAttack": 18,
+  "baseDefence": 19,
+  "baseAgility": 10
 }

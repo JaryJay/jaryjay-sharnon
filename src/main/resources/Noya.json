@@ -3,23 +3,77 @@
   "experience": 0,
   "gameClass": "ASSASSIN",
   "inventory": {
-    "items": [],
-    "amounts": []
+    "itemsToAmounts": {
+      "Jade Bracelet": 1,
+      "Steel Dagger": 2,
+      "Leather Vest": 1,
+      "Gold Coin": 235
+    }
   },
   "spellBook": {
-    "spells": []
+    "spells": [
+      {
+        "cost": 3,
+        "name": "Freeze",
+        "description": "Freeze a target until your next turn."
+      },
+      {
+        "cost": 10,
+        "name": "Invisibility",
+        "description": "95% chance to turn yourself invisible for 1 turn."
+      },
+      {
+        "cost": 4,
+        "name": "Poison",
+        "description": "A target takes 2 damage disregarding defence each turn for 4 turns."
+      },
+      {
+        "cost": 4,
+        "name": "Veil Of Smoke",
+        "description": "Create a cube of smoke around you. Creatures cannot see past it. It disappears after 2 turns."
+      }
+    ]
+  },
+  "primaryWeapon": {
+    "name": "Steel Dagger",
+    "description": "A sharpened steel dagger.",
+    "value": 3.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 4,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  "armour": {
+    "name": "Leather Vest",
+    "description": "A comfortable padded leather vest.",
+    "value": 20.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 1,
+    "agilityModifier": 2
   },
   "accessories": [
-    null,
+    {
+      "name": "Jade Bracelet",
+      "description": "A light bracelet made of pure jade. Gives +3 agility.",
+      "value": 140.0,
+      "maxHealthModifier": 0,
+      "maxEnergyModifier": 0,
+      "attackModifier": 0,
+      "defenceModifier": 0,
+      "agilityModifier": 3
+    },
     null,
     null
   ],
   "name": "Noya",
-  "maxHealth": 10,
-  "maxEnergy": 10,
-  "health": 10,
-  "energy": 10,
-  "attack": 5,
-  "defence": 6,
-  "agility": 0
+  "baseMaxHealth": 28,
+  "baseMaxEnergy": 36,
+  "health": 28,
+  "energy": 36,
+  "baseAttack": 26,
+  "baseDefence": 13,
+  "baseAgility": 10
 }

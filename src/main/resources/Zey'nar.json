@@ -3,11 +3,54 @@
   "experience": 0,
   "gameClass": "MAGE",
   "inventory": {
-    "items": [],
-    "amounts": []
+    "itemsToAmounts": {
+      "Gold Coin": 252,
+      "Staff": 1
+    }
   },
   "spellBook": {
-    "spells": []
+    "spells": [
+      {
+        "cost": 4,
+        "name": "Fireball",
+        "description": "Deal 8 damage disregarding defence to a target."
+      },
+      {
+        "cost": 3,
+        "name": "Freeze",
+        "description": "Freeze a target until your next turn."
+      },
+      {
+        "cost": 1,
+        "name": "Missile Spell",
+        "description": "Create 3 missiles that deal 1 damage each disregarding defence."
+      },
+      {
+        "cost": 4,
+        "name": "Plant Armour",
+        "description": "A target gets +4 armour for 2 turns."
+      },
+      {
+        "cost": 4,
+        "name": "Poison",
+        "description": "A target takes 2 damage disregarding defence each turn for 4 turns."
+      },
+      {
+        "cost": 9,
+        "name": "Pyroblast",
+        "description": "Deal 18 damage disregarding defence to a target."
+      }
+    ]
+  },
+  "primaryWeapon": {
+    "name": "Staff",
+    "description": "A tall oaken staff.",
+    "value": 8.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 4,
+    "attackModifier": 1,
+    "defenceModifier": 0,
+    "agilityModifier": 0
   },
   "accessories": [
     null,
@@ -15,11 +58,11 @@
     null
   ],
   "name": "Zey\u0027nar",
-  "baseMaxHealth": 0,
-  "baseMaxEnergy": 0,
+  "baseMaxHealth": 26,
+  "baseMaxEnergy": 36,
   "health": 10,
   "energy": 10,
-  "baseAttack": 0,
-  "baseDefence": 0,
-  "baseAgility": 0
+  "baseAttack": 20,
+  "baseDefence": 18,
+  "baseAgility": 8
 }

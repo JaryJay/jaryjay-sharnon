@@ -10,6 +10,16 @@
     "agilityModifier": 0
   },
   {
+    "name": "Arfrod Helmet",
+    "description": "A metal helmet with the Arfrod emblem on the front.",
+    "value": 10.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 1,
+    "defenceModifier": 2,
+    "agilityModifier": 0
+  },
+  {
     "name": "Boomerang",
     "description": "A metal boomerang.",
     "value": 4.0,
@@ -50,6 +60,26 @@
     "agilityModifier": 0
   },
   {
+    "name": "Dragon Skin Cloak",
+    "description": "A magnificent cloak crafted from the hide of a dragon.",
+    "value": 1500.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 10,
+    "attackModifier": 0,
+    "defenceModifier": 5,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Druid Cloak",
+    "description": "A druid\u0027s majestic cloak of animal hides and plant material.",
+    "value": 75.0,
+    "maxHealthModifier": 4,
+    "maxEnergyModifier": 0,
+    "attackModifier": 1,
+    "defenceModifier": 6,
+    "agilityModifier": 0
+  },
+  {
     "name": "Dwarven Shield",
     "description": "A beautiful dwarven crafted large, red, rectangular shield.",
     "value": 180.0,
@@ -66,6 +96,16 @@
     "maxHealthModifier": 0,
     "maxEnergyModifier": 0,
     "attackModifier": 7,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Ember Ring",
+    "description": "A ring with a blazing red ruby. Gives +2 health.",
+    "value": 25.0,
+    "maxHealthModifier": 2,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
     "defenceModifier": 0,
     "agilityModifier": 0
   },
@@ -140,6 +180,36 @@
     "agilityModifier": 0
   },
   {
+    "name": "Jade Bracelet",
+    "description": "A light bracelet made of pure jade. Gives +3 agility.",
+    "value": 140.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 0,
+    "agilityModifier": 3
+  },
+  {
+    "name": "Leather Vest",
+    "description": "A comfortable padded leather vest.",
+    "value": 20.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 1,
+    "agilityModifier": 2
+  },
+  {
+    "name": "Mace",
+    "description": "An iron mace with a smooth wooden handle",
+    "value": 10.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 4,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
     "name": "Map of Sharnon",
     "description": "A large parchment map of Sharnon.",
     "value": 5.0,
@@ -158,6 +228,16 @@
     "attackModifier": 0,
     "defenceModifier": 2,
     "agilityModifier": 3
+  },
+  {
+    "name": "Mithril Claws",
+    "description": "A pair of claws made of pure mithril.",
+    "value": 120.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 5,
+    "defenceModifier": 0,
+    "agilityModifier": 1
   },
   {
     "name": "Mithril Scythe",
@@ -190,6 +270,16 @@
     "agilityModifier": 0
   },
   {
+    "name": "Ring of Replenishing Energy",
+    "description": "A golden ring that grants the wearer 1 energy every turn if the wearer attacked or cast a spell.",
+    "value": 180.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
     "name": "Smoke Bomb",
     "description": "A bomb that erupts in smoke when thrown.",
     "value": 7.0,
@@ -200,12 +290,62 @@
     "agilityModifier": 0
   },
   {
+    "name": "Spear",
+    "description": "A spear with a sharp steel tip.",
+    "value": 5.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 2,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Spiked Ring",
+    "description": "A spiky iron ring that gives +1 attack.",
+    "value": 10.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 1,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
     "name": "Spyglass",
     "description": "A pirate\u0027s spyglass.",
     "value": 5.0,
     "maxHealthModifier": 0,
     "maxEnergyModifier": 0,
     "attackModifier": 0,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Staff",
+    "description": "A tall oaken staff.",
+    "value": 8.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 4,
+    "attackModifier": 1,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Steel Dagger",
+    "description": "A sharpened steel dagger.",
+    "value": 3.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 4,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Steel Sword",
+    "description": "A shiny steel sword.",
+    "value": 3.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 3,
     "defenceModifier": 0,
     "agilityModifier": 0
   },

@@ -1,6 +1,6 @@
 package game.actor;
 
-public class GameActor {
+public abstract class GameActor {
 
 	protected String name;
 
@@ -73,28 +73,34 @@ public class GameActor {
 		this.energy = energy;
 	}
 
-	public int getAttack() {
+	public int getBaseAttack() {
 		return baseAttack;
 	}
 
-	public void setAttack(int attack) {
+	public void setBaseAttack(int attack) {
 		this.baseAttack = attack;
 	}
 
-	public int getDefence() {
+	public abstract int getAttack();
+
+	public int getBaseDefence() {
 		return baseDefence;
 	}
 
-	public void setDefence(int defence) {
+	public void setBaseDefence(int defence) {
 		this.baseDefence = defence;
 	}
 
-	public int getAgility() {
+	public abstract int getDefence();
+
+	public int getBaseAgility() {
 		return baseAgility;
 	}
 
-	public void setAgility(int agility) {
+	public void setBaseAgility(int agility) {
 		this.baseAgility = agility;
 	}
+
+	public abstract int getAgility();
 
 }

@@ -1,12 +1,112 @@
 [
   {
+    "cost": 8,
+    "name": "Arcane Bondage",
+    "description": "A target can\u0027t cast spells until the end of your next turn."
+  },
+  {
+    "cost": 2,
+    "name": "Burn",
+    "description": "Light a target on fire."
+  },
+  {
+    "cost": 4,
+    "name": "Curse",
+    "description": "Until the start of your next turn, a target takes double damage."
+  },
+  {
+    "cost": 4,
+    "name": "Fire Shield",
+    "description": "Gain 10 defence until the start of your next turn. Until the start of your next turn, deal 2 damage disregarding defence to anyone that damages you."
+  },
+  {
     "cost": 4,
     "name": "Fireball",
     "description": "Deal 8 damage disregarding defence to a target."
   },
   {
+    "cost": 3,
+    "name": "Freeze",
+    "description": "Freeze a target until your next turn."
+  },
+  {
+    "cost": 8,
+    "name": "Instantaneous Implosion",
+    "description": "Deal 10 damage disregarding defence to a target. Can\u0027t miss if the target is tangible. Can\u0027t be countered."
+  },
+  {
+    "cost": 10,
+    "name": "Invisibility",
+    "description": "95% chance to turn yourself invisible for 1 turn."
+  },
+  {
+    "cost": 4,
+    "name": "Lesser Heal",
+    "description": "Restore 8 health to a target"
+  },
+  {
+    "cost": 4,
+    "name": "Lightning Bolt",
+    "description": "Deal 25 damage to a target."
+  },
+  {
+    "cost": 20,
+    "name": "Master Bolt",
+    "description": "Deal 41 damage to a target."
+  },
+  {
     "cost": 1,
-    "name": "Test1",
-    "description": "TestDescription"
+    "name": "Missile Spell",
+    "description": "Create 3 missiles that deal 1 damage each disregarding defence."
+  },
+  {
+    "cost": 4,
+    "name": "Plant Armour",
+    "description": "A target gets +4 armour for 2 turns."
+  },
+  {
+    "cost": 4,
+    "name": "Poison",
+    "description": "A target takes 2 damage disregarding defence each turn for 4 turns."
+  },
+  {
+    "cost": 9,
+    "name": "Pyroblast",
+    "description": "Deal 18 damage disregarding defence to a target."
+  },
+  {
+    "cost": 6,
+    "name": "Rebuke of Fire",
+    "description": "Surround a target in a ring of fire with inner radius 2 meters and outer radius 1 meter. Whenever the target moves onto the ring within the next 3 turns, it takes 7 damage disregarding defence."
+  },
+  {
+    "cost": 5,
+    "name": "Shapeshift",
+    "description": "Transform into any animal."
+  },
+  {
+    "cost": 5,
+    "name": "Stubbornness",
+    "description": "Gain 10 defence until the start of your next turn."
+  },
+  {
+    "cost": 8,
+    "name": "Summon Meteor",
+    "description": "Summon a meteor at target place that deals 30 damage to anyone standing there. It arrives in 10 seconds. You must have direct access to the sky to cast this."
+  },
+  {
+    "cost": 8,
+    "name": "Summon Phoenix",
+    "description": "Summon a phoenix that lasts 5 turns. Each turn, it deals 2 damage to each of up to 2 enemies disregarding defence."
+  },
+  {
+    "cost": 5,
+    "name": "Tangle",
+    "description": "Grow thorns under a target standing on the ground. The target needs to spend 1 action to escape the thorns. While the target is tangled, they have 0 agility and cannot move."
+  },
+  {
+    "cost": 4,
+    "name": "Veil Of Smoke",
+    "description": "Create a cube of smoke around you. Creatures cannot see past it. It disappears after 2 turns."
   }
 ]

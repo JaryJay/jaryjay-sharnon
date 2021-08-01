@@ -3,110 +3,95 @@
   "experience": 1000,
   "gameClass": "WARRIOR",
   "inventory": {
-    "items": [
-      {
-        "name": "Throwing Knife",
-        "description": "A razor sharp knife with a ring on the end, suitable for throwing.",
-        "value": 0.2,
-        "maxHealthModifier": 0,
-        "maxEnergyModifier": 0,
-        "attackModifier": 0,
-        "defenceModifier": 0,
-        "agilityModifier": 0
-      },
-      {
-        "name": "Communicator Artifact",
-        "description": "A heavy steel artifact used to contact other similar artifacts.",
-        "value": 35.0,
-        "maxHealthModifier": 0,
-        "maxEnergyModifier": 0,
-        "attackModifier": 0,
-        "defenceModifier": 0,
-        "agilityModifier": 0
-      },
-      {
-        "name": "Tent",
-        "description": "A cloth tent",
-        "value": 10.0,
-        "maxHealthModifier": 0,
-        "maxEnergyModifier": 0,
-        "attackModifier": 0,
-        "defenceModifier": 0,
-        "agilityModifier": 0
-      },
-      {
-        "name": "Amulet of Resurrection",
-        "description": "A magical amulet that prevents the wearer from dying once.",
-        "value": 3000.0,
-        "maxHealthModifier": 0,
-        "maxEnergyModifier": 0,
-        "attackModifier": 0,
-        "defenceModifier": 0,
-        "agilityModifier": 0
-      },
-      {
-        "name": "Health Potion",
-        "description": "A potion of crimson liquid that restores 15 health to the drinker.",
-        "value": 12.0,
-        "maxHealthModifier": 0,
-        "maxEnergyModifier": 0,
-        "attackModifier": 0,
-        "defenceModifier": 0,
-        "agilityModifier": 0
-      },
-      {
-        "name": "Elemental sword",
-        "description": "A shiny sword hilt that, when activated, forms a blade of the wielder\u0027s element.",
-        "value": 800.0,
-        "maxHealthModifier": 0,
-        "maxEnergyModifier": 0,
-        "attackModifier": 0,
-        "defenceModifier": 0,
-        "agilityModifier": 0
-      },
-      {
-        "name": "Dwarven shield",
-        "description": "A beautiful dwarven crafted large, red, rectangular shield.",
-        "value": 200.0,
-        "maxHealthModifier": 0,
-        "maxEnergyModifier": 0,
-        "attackModifier": -1,
-        "defenceModifier": 0,
-        "agilityModifier": 0
-      },
-      {
-        "name": "Etherium helmet",
-        "description": "A light helmet made of etherium that grants water breathing for up to two hours.",
-        "value": 1200.0,
-        "maxHealthModifier": 0,
-        "maxEnergyModifier": 0,
-        "attackModifier": 0,
-        "defenceModifier": 0,
-        "agilityModifier": 0
-      }
-    ],
-    "amounts": [
-      12,
-      1,
-      1,
-      1,
-      12,
-      1,
-      1,
-      1
-    ]
+    "itemsToAmounts": {
+      "Tent": 1,
+      "Amulet of Resurrection": 1,
+      "Energy Shield": 1,
+      "Health Potion": 14,
+      "Potion Belt": 1,
+      "Boomerang": 1,
+      "Mithril Boots": 1,
+      "Elemental Sword": 1,
+      "Communicator Artifact": 1,
+      "Spyglass": 1,
+      "Throwing Knife": 12,
+      "Coil of Rope": 1,
+      "Climbing Tool Set": 1,
+      "Whistle": 1,
+      "Map of Sharnon": 1,
+      "Gurnish Bracer": 1,
+      "Etherium Helmet": 1,
+      "Ring of Replenishing Energy": 1,
+      "Fire-hardened Armour": 1,
+      "Ration": 7
+    }
   },
   "spellBook": {
     "spells": [
       {
+        "cost": 2,
+        "name": "Burn",
+        "description": "Light a target on fire."
+      },
+      {
+        "cost": 4,
+        "name": "Fire Shield",
+        "description": "Gain 10 defence until the start of your next turn. Until the start of your next turn, deal 2 damage disregarding defence to anyone that damages you."
+      },
+      {
         "cost": 4,
         "name": "Fireball",
         "description": "Deal 8 damage disregarding defence to a target."
+      },
+      {
+        "cost": 3,
+        "name": "Freeze",
+        "description": "Freeze a target until your next turn."
+      },
+      {
+        "cost": 8,
+        "name": "Instantaneous Implosion",
+        "description": "Deal 10 damage disregarding defence to a target. Can\u0027t miss if the target is tangible. Can\u0027t be countered."
+      },
+      {
+        "cost": 4,
+        "name": "Lightning Bolt",
+        "description": "Deal 25 damage to a target."
+      },
+      {
+        "cost": 20,
+        "name": "Master Bolt",
+        "description": "Deal 41 damage to a target."
+      },
+      {
+        "cost": 1,
+        "name": "Missile Spell",
+        "description": "Create 3 missiles that deal 1 damage each disregarding defence."
+      },
+      {
+        "cost": 9,
+        "name": "Pyroblast",
+        "description": "Deal 18 damage disregarding defence to a target."
+      },
+      {
+        "cost": 6,
+        "name": "Rebuke of Fire",
+        "description": "Surround a target in a ring of fire with inner radius 2 meters and outer radius 1 meter. Whenever the target moves onto the ring within the next 3 turns, it takes 7 damage disregarding defence."
+      },
+      {
+        "cost": 8,
+        "name": "Summon Meteor",
+        "description": "Summon a meteor at target place that deals 30 damage to anyone standing there. It arrives in 10 seconds. You must have direct access to the sky to cast this."
+      },
+      {
+        "cost": 8,
+        "name": "Summon Phoenix",
+        "description": "Summon a phoenix that lasts 5 turns. Each turn, it deals 2 damage to each of up to 2 enemies disregarding defence."
       }
     ]
   },
   "primaryWeapon": {
-    "name": "Elemental sword",
+    "name": "Elemental Sword",
     "description": "A shiny sword hilt that, when activated, forms a blade of the wielder\u0027s element.",
     "value": 800.0,
     "maxHealthModifier": 0,
@@ -115,28 +100,57 @@
     "defenceModifier": 0,
     "agilityModifier": 0
   },
+  "armour": {
+    "name": "Fire-hardened Armour",
+    "description": "A fire-hardened chestplate forged by a legendary blacksmith.",
+    "value": 360.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 7,
+    "agilityModifier": 0
+  },
   "helmet": {
-    "name": "Etherium helmet",
+    "name": "Etherium Helmet",
     "description": "A light helmet made of etherium that grants water breathing for up to two hours.",
     "value": 1200.0,
     "maxHealthModifier": 0,
     "maxEnergyModifier": 0,
     "attackModifier": 0,
-    "defenceModifier": 0,
+    "defenceModifier": 9,
     "agilityModifier": 0
+  },
+  "footwear": {
+    "name": "Mithril Boots",
+    "description": "A pair of mithril boots enchanted by Merlin the mage to give the wielder extreme speed.",
+    "value": 360.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 2,
+    "agilityModifier": 3
   },
   "accessories": [
     {
-      "name": "Amulet of Resurrection",
-      "description": "A magical amulet that prevents the wearer from dying once.",
-      "value": 3000.0,
+      "name": "Gurnish Bracer",
+      "description": "A sturdy bracer from a Gurnish stone.",
+      "value": 360.0,
+      "maxHealthModifier": 3,
+      "maxEnergyModifier": 0,
+      "attackModifier": 3,
+      "defenceModifier": 3,
+      "agilityModifier": 0
+    },
+    {
+      "name": "Ring of Replenishing Energy",
+      "description": "A golden ring that grants the wearer 1 energy every turn if the wearer attacked or cast a spell.",
+      "value": 180.0,
       "maxHealthModifier": 0,
       "maxEnergyModifier": 0,
       "attackModifier": 0,
       "defenceModifier": 0,
       "agilityModifier": 0
     },
-    null,
     null
   ],
   "name": "Wei",
@@ -144,7 +158,7 @@
   "baseMaxEnergy": 28,
   "health": 37,
   "energy": 28,
-  "baseAttack": 11,
-  "baseDefence": 0,
-  "baseAgility": 0
+  "baseAttack": 8,
+  "baseDefence": 6,
+  "baseAgility": 10
 }

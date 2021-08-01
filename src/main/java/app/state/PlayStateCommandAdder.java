@@ -34,7 +34,39 @@ public class PlayStateCommandAdder {
 				System.out.println("\n" + actor + "\n");
 			}
 		}));
-		playState.addCommand(new GameCommand("set_actor_attr", "<actor> <attr> <amount>", "Sets an attribute of an actor", 4, args -> {
+		playState.addCommand(new GameCommand("damage", "<actor> <damage>",
+				"Deal damage to an actor. This can miss, and the actor will take damage equal to damage - actor's defence.", 3, args -> {
+					GameActor actor = getActor(args[1]);
+					if (actor == null) {
+						System.out.println("Actor " + args[1] + " does not exist.");
+						return;
+					}
+					Integer damage = parseInt(args[2]);
+					if (damage == null) {
+						return;
+					}
+					int roll = NumberGenerator.generateNumber(20);
+					if (roll == 1) {
+						System.out.println("Rolled a 1! Attack failed.");
+						return;
+					} else if (roll == 20) {
+						System.out.println("Critical hit! Double damage.");
+						damage *= 2;
+					} else if (roll <= actor.getAgility()) {
+						System.out.println(actor.getName() + " dodged the attack! They took 0 damage.");
+						return;
+					}
+					int defence = actor.getDefence();
+					if (damage <= defence) {
+						System.out.println(actor.getName() + " took 1 damage!");
+						actor.setHealth(actor.getHealth() - 1);
+					} else {
+						int takenDamage = damage - defence;
+						System.out.println(actor.getName() + " took " + takenDamage + " damage!");
+						actor.setHealth(actor.getHealth() - takenDamage);
+					}
+				}));
+		playState.addCommand(new GameCommand("actor_attr", "<actor> <attr> <amount>", "Sets an attribute of an actor", 4, args -> {
 			GameActor actor = getActor(args[1]);
 			if (actor == null) {
 				System.out.println("Actor " + args[1] + " does not exist.");
@@ -59,7 +91,10 @@ public class PlayStateCommandAdder {
 					if (actor instanceof HasLevel) {
 						HasLevel hasLevel = (HasLevel) actor;
 						int amount = parseInt(value);
-						hasLevel.addExperience(add ? amount : amount - hasLevel.getExperience());
+						int numLevelUps = hasLevel.addExperience(add ? amount : amount - hasLevel.getExperience());
+						if (numLevelUps > 0) {
+							System.out.println(actor.getName() + " leveled up " + numLevelUps + " times!");
+						}
 					}
 					break;
 				case "class":
@@ -84,13 +119,13 @@ public class PlayStateCommandAdder {
 					actor.setEnergy(add ? actor.getEnergy() + parseInt(value) : parseInt(value));
 					break;
 				case "attack":
-					actor.setAttack(add ? actor.getAttack() + parseInt(value) : parseInt(value));
+					actor.setBaseAttack(add ? actor.getBaseAttack() + parseInt(value) : parseInt(value));
 					break;
 				case "defence":
-					actor.setDefence(add ? actor.getDefence() + parseInt(value) : parseInt(value));
+					actor.setBaseDefence(add ? actor.getBaseDefence() + parseInt(value) : parseInt(value));
 					break;
 				case "agility":
-					actor.setAgility(add ? actor.getAgility() + parseInt(value) : parseInt(value));
+					actor.setBaseAgility(add ? actor.getBaseAgility() + parseInt(value) : parseInt(value));
 					break;
 				default:
 					System.out.println("Attribute" + args[2] + " does not exist.");
@@ -124,6 +159,21 @@ public class PlayStateCommandAdder {
 			ActorLoader.saveActor(ActorLoader.createHuman(args[1]));
 			System.out.println("Created actor " + args[1] + ".");
 		}));
+		playState.addCommand(new GameCommand("create_actor", "<actor> <actor to copy>", "Create an actor as a copy of a preexisting actor", 3, args -> {
+			GameActor toCopy = getActor(args[2]);
+			if (toCopy == null) {
+				System.out.println("Actor " + args[2] + " does not exist.");
+				return;
+			}
+			GameActor actor = getActor(args[1]);
+			if (toCopy != null) {
+				System.out.println("Actor " + args[1] + " already exists.");
+				return;
+			}
+			ActorLoader.createHuman(args[1]);
+			ActorLoader.saveActor(ActorLoader.createHuman(args[1]));
+			System.out.println("Created actor " + args[1] + ".");
+		}));
 	}
 
 	public void addItemCommands() {
@@ -152,7 +202,7 @@ public class PlayStateCommandAdder {
 				System.out.println("Set amount of " + item + " to " + amount + " in " + actor.getName() + "'s inventory.");
 			}
 		}));
-		playState.addCommand(new GameCommand("set_item_attr", "<item> <attr> <value>", "Set the attribute of an item", 4, args -> {
+		playState.addCommand(new GameCommand("item_attr", "<item> <attr> <value>", "Set the attribute of an item", 4, args -> {
 			Item item = Item.valueOf(args[1]);
 			if (item == null) {
 				System.out.println("Item " + args[1] + " does not exist.");
@@ -162,7 +212,7 @@ public class PlayStateCommandAdder {
 				System.out.println("Successfully set " + args[2]);
 			}
 		}));
-		playState.addCommand(new GameCommand("inspect_item", "<item>", "Describe an item", 2, args -> {
+		playState.addCommand(new GameCommand("inspect", "<item>", "Describe an item", 2, args -> {
 			Item item = Item.valueOf(args[1]);
 			if (item == null) {
 				System.out.println("Item " + args[1] + " does not exist.");

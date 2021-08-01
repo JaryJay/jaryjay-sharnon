@@ -28,6 +28,7 @@ public class Spell implements Comparable<Spell> {
 	}
 
 	public static Spell valueOf(String name) {
+		name = name.replace('_', ' ');
 		for (Spell spell : values) {
 			if (spell.getName().equalsIgnoreCase(name)) {
 				return spell;

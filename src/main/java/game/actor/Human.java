@@ -162,4 +162,19 @@ public class Human extends GameActor implements HasLevel, HasClass, HasSpells, H
 		return accessories;
 	}
 
+	@Override
+	public int getAttack() {
+		return baseAttack + getAttackModifier();
+	}
+
+	@Override
+	public int getDefence() {
+		return baseDefence + getDefenceModifier();
+	}
+
+	@Override
+	public int getAgility() {
+		return baseAgility + getAgilityModifier();
+	}
+
 }
