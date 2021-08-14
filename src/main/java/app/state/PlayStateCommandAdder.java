@@ -1,7 +1,11 @@
 package app.state;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import org.fusesource.jansi.Ansi.Color;
 
 import command.GameCommand;
 import game.actor.*;
@@ -47,10 +51,10 @@ public class PlayStateCommandAdder {
 					}
 					int roll = NumberGenerator.generateNumber(20);
 					if (roll == 1) {
-						System.out.println("Rolled a 1! Attack failed.");
+						System.out.println(ansi().fgRed().a("Rolled a 1! Attack failed.").reset());
 						return;
 					} else if (roll == 20) {
-						System.out.println("Critical hit! Double damage.");
+						System.out.println(ansi().fgBrightYellow().a("Critical hit!").reset() + " Double damage.");
 						damage *= 2;
 					} else if (roll <= actor.getAgility()) {
 						System.out.println(actor.getName() + " dodged the attack! They took 0 damage.");
@@ -93,7 +97,7 @@ public class PlayStateCommandAdder {
 						int amount = parseInt(value);
 						int numLevelUps = hasLevel.addExperience(add ? amount : amount - hasLevel.getExperience());
 						if (numLevelUps > 0) {
-							System.out.println(actor.getName() + " leveled up " + numLevelUps + " times!");
+							System.out.println(ansi().fg(Color.YELLOW).a(actor.getName() + " leveled up " + numLevelUps + " times!").reset());
 						}
 					}
 					break;
@@ -166,7 +170,7 @@ public class PlayStateCommandAdder {
 				return;
 			}
 			GameActor actor = getActor(args[1]);
-			if (toCopy != null) {
+			if (actor != null) {
 				System.out.println("Actor " + args[1] + " already exists.");
 				return;
 			}

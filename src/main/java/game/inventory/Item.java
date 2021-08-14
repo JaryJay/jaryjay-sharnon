@@ -3,6 +3,7 @@ package game.inventory;
 import java.util.TreeSet;
 
 import org.apache.commons.text.WordUtils;
+import org.fusesource.jansi.Ansi;
 
 import loader.ItemLoader;
 
@@ -26,7 +27,7 @@ public class Item implements Comparable<Item> {
 
 	public Item(String name, String description, float value,
 			int maxHealthModifier, int maxEnergyModifier, int attackModifier, int defenceModifier, int agilityModifier) {
-		this.name = WordUtils.capitalizeFully(name.replace('_', ' '));
+		this.name = Ansi.ansi().fgCyan().a(WordUtils.capitalizeFully(name.replace('_', ' '))).reset().toString();
 		description = description.replace('_', ' ');
 		this.description = description.substring(0, 1).toUpperCase() + description.substring(1);
 		this.value = value;

@@ -14,7 +14,7 @@ public class CharacterNameGenerator {
 			"ba", "bar", "be", "bir", "bo", "bor", "bu", "bri", "bru",
 			"ca", "cau", "ce", "cha", "che", "cher", "chi", "cho", "chu", "ci", "co", "cra", "crau", "cre", "cri", "cro", "cru", "cu",
 			"da", "de", "di", "do", "du", "dra", "dre", "dri", "dro", "dru", "dry", "dy",
-			"e", "en", "eo", "es",
+			"e", "el", "en", "eo", "es",
 			"fa", "fe", "fi", "fo", "fur", "fra", "fre", "fri", "fro", "fru", "fy",
 			"ga", "ge", "gi", "gna", "gne", "gno", "gri", "go", "gu", "gy",
 			"ha", "har", "he", "hi", "ho", "hu", "hy",
@@ -40,12 +40,12 @@ public class CharacterNameGenerator {
 	};
 
 	private static final String[] SUFFIXES = {
-			"a", "ay",
+			"a", "ar", "arm", "ay",
 			"b",
 			"c", "ce", "ck",
 			"d", "de",
-			"e", "ey",
-			"f",
+			"e", "ell", "erm", "ey",
+			"f", "ff",
 			"g", "gh",
 			"h",
 			"i", "in", "ion",

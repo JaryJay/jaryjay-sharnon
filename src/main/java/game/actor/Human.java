@@ -1,5 +1,7 @@
 package game.actor;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 import game.gameclass.GameClass;
 import game.inventory.Inventory;
 import game.inventory.Item;
@@ -54,7 +56,7 @@ public class Human extends GameActor implements HasLevel, HasClass, HasSpells, H
 		String attackText = "Attack: " + (baseAttack + attackModifier) + " (" + (attackModifier < 0 ? "" : "+") + attackModifier + ")";
 		String defenceText = "Defence: " + (baseDefence + defenceModifier) + " (" + (defenceModifier < 0 ? "" : "+") + defenceModifier + ")";
 		String agilityText = "Agility: " + (baseAgility + agilityModifier) + " (" + (agilityModifier < 0 ? "" : "+") + agilityModifier + ")";
-		return name + " Level." + level + " " + gameClass.toString()
+		return ansi().fgBrightCyan().a(name).reset() + " Level." + level + " " + gameClass.toString()
 				+ "\nExp: " + experience + "/" + (level * 50 + 50)
 				+ "\n\nStats:"
 				+ "\n" + healthText
@@ -62,8 +64,8 @@ public class Human extends GameActor implements HasLevel, HasClass, HasSpells, H
 				+ "\n" + attackText
 				+ "\n" + defenceText
 				+ "\n" + agilityText
-				+ "\n\nInventory:" + inventory
-				+ "\n\nSpell Book:\n" + spellBook;
+				+ "\n\n" + ansi().fgRed().a("Inventory:").reset() + inventory
+				+ "\n\n" + ansi().fgBrightMagenta().a("Spell Book:").reset() + "\n" + spellBook;
 	}
 
 	@Override

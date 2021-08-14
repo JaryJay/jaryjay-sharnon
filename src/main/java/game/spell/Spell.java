@@ -1,5 +1,7 @@
 package game.spell;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 import java.util.TreeSet;
 
 import org.apache.commons.text.WordUtils;
@@ -23,7 +25,7 @@ public class Spell implements Comparable<Spell> {
 
 	public Spell(int cost, String name, String description) {
 		this.cost = cost;
-		this.name = WordUtils.capitalizeFully(name);
+		this.name = ansi().fgBrightMagenta().a(WordUtils.capitalizeFully(name)).reset().toString();
 		this.description = description.substring(0, 1).toUpperCase() + description.substring(1);
 	}
 
@@ -43,7 +45,8 @@ public class Spell implements Comparable<Spell> {
 
 	@Override
 	public String toString() {
-		return String.format("(%d) %s - %s", cost, name, description);
+		return String.format("%s %s - %s", ansi().fgBrightBlue().a("(" + Integer.toString(cost) + ")").reset().toString(),
+				ansi().fgRed().a(name).reset().toString(), description);
 	}
 
 	@Override

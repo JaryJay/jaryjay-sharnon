@@ -30,6 +30,7 @@ public abstract class AppState {
 
 	public final void handle(String[] split) {
 		Optional<GameCommand> optionalCommand = commands.stream().filter(c -> c.getKey().equals(split[0]) && c.getCommandLength() == split.length).findFirst();
+		System.out.println();
 		if (optionalCommand.isPresent()) {
 			optionalCommand.get().getAction().accept(split);
 		} else {
