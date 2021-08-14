@@ -1,5 +1,7 @@
 package app.state;
 
+import static org.fusesource.jansi.Ansi.ansi;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -21,6 +23,7 @@ public abstract class AppState {
 		commands = new ArrayList<>();
 		addCommand(new GameCommand("help", "Show a list of commands", 1, args -> printCommands()));
 		addCommand(new GameCommand("quit", "Exit Sharnon", 1, args -> quit()));
+		addCommand(new GameCommand("clear", "Clears the console", 1, args -> System.out.println(ansi().eraseScreen().reset())));
 		initCommands();
 		doInit();
 	}
