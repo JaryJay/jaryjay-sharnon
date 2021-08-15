@@ -224,10 +224,15 @@ public class PlayStateCommandAdder {
 				System.out.println(item.getFullDescription());
 			}
 		}));
+		playState.addCommand(new GameCommand("items", "Shows a list of all items", 1, args -> {
+			for (Item item : Item.values) {
+				System.out.println(item.getFullDescription());
+			}
+		}));
 		playState.addCommand(new GameCommand("create_item", "<item> <description> <value>", "Create an item", 4, args -> {
 			Item item = Item.valueOf(args[1]);
 			if (item != null) {
-				System.out.println("Item " + item.getName() + " already exists.");
+				System.out.println("Item " + item + " already exists.");
 			}
 			Float value = parseFloat(args[3]);
 			if (value == null) {
@@ -235,7 +240,7 @@ public class PlayStateCommandAdder {
 			}
 			item = new Item(args[1], args[2], value);
 			Item.addItem(item);
-			System.out.println("Successfully added item " + item.getName());
+			System.out.println("Successfully added item " + item);
 		}));
 	}
 

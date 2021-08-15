@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.function.Consumer;
 
+import org.fusesource.jansi.Ansi;
+
 public class Inventory {
 
 	private LinkedHashMap<String, Integer> itemsToAmounts;
@@ -25,6 +27,11 @@ public class Inventory {
 			}
 		});
 		return stringBuilder.toString();
+	}
+
+	public Inventory copy() {
+		Inventory copy = new Inventory();
+		return copy;
 	}
 
 	public int size() {

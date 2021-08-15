@@ -20,6 +20,16 @@
     "agilityModifier": 0
   },
   {
+    "name": "Arrow",
+    "description": "An arrow with a sharp tip.",
+    "value": 0.2,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
     "name": "Boomerang",
     "description": "A metal boomerang.",
     "value": 4.0,
@@ -52,6 +62,16 @@
   {
     "name": "Communicator Artifact",
     "description": "A heavy steel artifact used to contact other similar artifacts.",
+    "value": 35.0,
+    "maxHealthModifier": 0,
+    "maxEnergyModifier": 0,
+    "attackModifier": 0,
+    "defenceModifier": 0,
+    "agilityModifier": 0
+  },
+  {
+    "name": "Crossbow",
+    "description": "A crossbow made of finished wood and iron.",
     "value": 35.0,
     "maxHealthModifier": 0,
     "maxEnergyModifier": 0,

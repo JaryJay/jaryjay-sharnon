@@ -27,7 +27,7 @@ public class Item implements Comparable<Item> {
 
 	public Item(String name, String description, float value,
 			int maxHealthModifier, int maxEnergyModifier, int attackModifier, int defenceModifier, int agilityModifier) {
-		this.name = Ansi.ansi().fgCyan().a(WordUtils.capitalizeFully(name.replace('_', ' '))).reset().toString();
+		this.name = WordUtils.capitalizeFully(name.replace('_', ' '));
 		description = description.replace('_', ' ');
 		this.description = description.substring(0, 1).toUpperCase() + description.substring(1);
 		this.value = value;
@@ -108,11 +108,11 @@ public class Item implements Comparable<Item> {
 
 	@Override
 	public String toString() {
-		return name;
+		return Ansi.ansi().fgCyan().a(name).reset().toString();
 	}
 
 	public String getFullDescription() {
-		return name + "\n" + description + "\nValue: " + value + " Gold Coins"
+		return Ansi.ansi().fgCyan().a(name).reset().toString() + "\n" + description + "\nValue: " + value + " Gold Coins"
 				+ "\nMax Health Modifier: " + maxHealthModifier
 				+ "\nMax Energy Modifier: " + maxEnergyModifier
 				+ "\nAttack Modifier:     " + attackModifier

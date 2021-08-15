@@ -69,6 +69,15 @@ public class Human extends GameActor implements HasLevel, HasClass, HasSpells, H
 	}
 
 	@Override
+	public Human copy(String name) {
+		Human copy = new Human(name, gameClass, baseMaxHealth, baseMaxEnergy, baseAttack, baseDefence, baseAgility);
+		copy.setLevel(level);
+		copy.setExperience(experience);
+		copy.inventory = inventory.copy();
+		return null;
+	}
+
+	@Override
 	public int getLevel() {
 		return level;
 	}

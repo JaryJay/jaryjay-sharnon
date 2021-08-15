@@ -33,6 +33,8 @@ public abstract class GameActor {
 				+ "\nAgility: " + baseAgility;
 	}
 
+	public abstract GameActor copy(String name);
+
 	public String getName() {
 		return name;
 	}
