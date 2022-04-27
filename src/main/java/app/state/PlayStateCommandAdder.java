@@ -8,7 +8,13 @@ import java.util.List;
 import org.fusesource.jansi.Ansi.Color;
 
 import command.GameCommand;
-import game.actor.*;
+import game.actor.GameActor;
+import game.actor.HasClass;
+import game.actor.HasEquipment;
+import game.actor.HasInventory;
+import game.actor.HasLevel;
+import game.actor.HasSpells;
+import game.actor.Human;
 import game.gameclass.GameClass;
 import game.inventory.Item;
 import game.spell.Spell;
@@ -82,58 +88,58 @@ public class PlayStateCommandAdder {
 				add = true;
 			}
 			switch (args[2]) {
-				case "level":
-					if (actor instanceof HasLevel) {
-						HasLevel hasLevel = (HasLevel) actor;
-						int amount = parseInt(value);
-						hasLevel.setLevel(add ? hasLevel.getLevel() + amount : amount);
+			case "level":
+				if (actor instanceof HasLevel) {
+					HasLevel hasLevel = (HasLevel) actor;
+					int amount = parseInt(value);
+					hasLevel.setLevel(add ? hasLevel.getLevel() + amount : amount);
+				}
+				break;
+			case "exp":
+			case "xp":
+			case "experience":
+				if (actor instanceof HasLevel) {
+					HasLevel hasLevel = (HasLevel) actor;
+					int amount = parseInt(value);
+					int numLevelUps = hasLevel.addExperience(add ? amount : amount - hasLevel.getExperience());
+					if (numLevelUps > 0) {
+						System.out.println(ansi().fg(Color.YELLOW).a(actor.getName() + " leveled up " + numLevelUps + " times!").reset());
 					}
-					break;
-				case "exp":
-				case "xp":
-				case "experience":
-					if (actor instanceof HasLevel) {
-						HasLevel hasLevel = (HasLevel) actor;
-						int amount = parseInt(value);
-						int numLevelUps = hasLevel.addExperience(add ? amount : amount - hasLevel.getExperience());
-						if (numLevelUps > 0) {
-							System.out.println(ansi().fg(Color.YELLOW).a(actor.getName() + " leveled up " + numLevelUps + " times!").reset());
-						}
-					}
-					break;
-				case "class":
-					if (actor instanceof HasClass) {
-						HasClass hasClass = (HasClass) actor;
-						hasClass.setGameClass(GameClass.getValueOf(value));
-					}
-					break;
-				case "name":
-					actor.setName(value);
-					break;
-				case "max_health":
-					actor.setMaxHealth(add ? actor.getMaxHealth() + parseInt(value) : parseInt(value));
-					break;
-				case "max_energy":
-					actor.setMaxEnergy(add ? actor.getMaxEnergy() + parseInt(value) : parseInt(value));
-					break;
-				case "health":
-					actor.setHealth(add ? actor.getHealth() + parseInt(value) : parseInt(value));
-					break;
-				case "energy":
-					actor.setEnergy(add ? actor.getEnergy() + parseInt(value) : parseInt(value));
-					break;
-				case "attack":
-					actor.setBaseAttack(add ? actor.getBaseAttack() + parseInt(value) : parseInt(value));
-					break;
-				case "defence":
-					actor.setBaseDefence(add ? actor.getBaseDefence() + parseInt(value) : parseInt(value));
-					break;
-				case "agility":
-					actor.setBaseAgility(add ? actor.getBaseAgility() + parseInt(value) : parseInt(value));
-					break;
-				default:
-					System.out.println("Attribute" + args[2] + " does not exist.");
-					return;
+				}
+				break;
+			case "class":
+				if (actor instanceof HasClass) {
+					HasClass hasClass = (HasClass) actor;
+					hasClass.setGameClass(GameClass.getValueOf(value));
+				}
+				break;
+			case "name":
+				actor.setName(value);
+				break;
+			case "max_health":
+				actor.setMaxHealth(add ? actor.getMaxHealth() + parseInt(value) : parseInt(value));
+				break;
+			case "max_energy":
+				actor.setMaxEnergy(add ? actor.getMaxEnergy() + parseInt(value) : parseInt(value));
+				break;
+			case "health":
+				actor.setHealth(add ? actor.getHealth() + parseInt(value) : parseInt(value));
+				break;
+			case "energy":
+				actor.setEnergy(add ? actor.getEnergy() + parseInt(value) : parseInt(value));
+				break;
+			case "attack":
+				actor.setBaseAttack(add ? actor.getBaseAttack() + parseInt(value) : parseInt(value));
+				break;
+			case "defence":
+				actor.setBaseDefence(add ? actor.getBaseDefence() + parseInt(value) : parseInt(value));
+				break;
+			case "agility":
+				actor.setBaseAgility(add ? actor.getBaseAgility() + parseInt(value) : parseInt(value));
+				break;
+			default:
+				System.out.println("Attribute" + args[2] + " does not exist.");
+				return;
 			}
 			System.out.println("Update success.");
 		}));
@@ -266,7 +272,7 @@ public class PlayStateCommandAdder {
 				itemName = item.getName();
 			}
 			HasEquipment hasEquipment = (HasEquipment) actor;
-			if (hasEquipment.getInventory().get(item) == 0) {
+			if (item != null && hasEquipment.getInventory().get(item) == 0) {
 				System.out.println("Actor " + actor.getName() + " does not have the item " + itemName + ".");
 				return;
 			}
@@ -411,4 +417,5 @@ public class PlayStateCommandAdder {
 		GameActor actor = playState.getActors().stream().filter(a -> a.getName().equalsIgnoreCase(name.replace('_', ' '))).findFirst().orElse(null);
 		return actor;
 	}
+
 }
