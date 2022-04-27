@@ -5,8 +5,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.function.Consumer;
 
-import org.fusesource.jansi.Ansi;
-
 public class Inventory {
 
 	private LinkedHashMap<String, Integer> itemsToAmounts;
@@ -19,12 +17,14 @@ public class Inventory {
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
 		itemsToAmounts.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(new Consumer<Entry<String, Integer>>() {
+
 			@Override
 			public void accept(Entry<String, Integer> entry) {
 				String item = entry.getKey();
 				int amount = entry.getValue();
 				stringBuilder.append("\n" + amount + "x " + item);
 			}
+
 		});
 		return stringBuilder.toString();
 	}
@@ -52,6 +52,8 @@ public class Inventory {
 	}
 
 	public int get(Item item) {
+		if (item == null)
+			return 0;
 		Integer amount = itemsToAmounts.get(item.getName());
 		return amount == null ? 0 : amount.intValue();
 	}

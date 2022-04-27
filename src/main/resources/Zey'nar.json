@@ -61,7 +61,7 @@
   "baseMaxHealth": 26,
   "baseMaxEnergy": 36,
   "health": 10,
-  "energy": 10,
+  "energy": 15,
   "baseAttack": 20,
   "baseDefence": 18,
   "baseAgility": 8
