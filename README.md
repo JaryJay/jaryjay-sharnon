@@ -45,3 +45,11 @@ Command definition example:
 ---
 
 What a neat little program, eh?
+
+## How to set up
+This tutorial assumes that you have Java 1.8 or above, and Maven.
+1. Clone the repository.
+2. Navigate to the directory in your terminal.
+3. Run `c.bat`
+4. Run `r.bat`
+5. Voila! You can now use the app. Use command `start <name>` to begin a session. e.g. `start Zey'nar`
