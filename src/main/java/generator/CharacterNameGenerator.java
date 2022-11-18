@@ -9,87 +9,66 @@ public class CharacterNameGenerator {
 	private CharacterNameGenerator() {
 	}
 
-	private static final String[] SYLLABLES = {
-			"a", "al", "an", "ar", "as", "ay",
-			"ba", "bar", "be", "bir", "bo", "bor", "bu", "bri", "bru",
-			"ca", "cau", "ce", "cha", "che", "cher", "chi", "cho", "chu", "ci", "co", "cra", "crau", "cre", "cri", "cro", "cru", "cu",
-			"da", "de", "di", "do", "du", "dra", "dre", "dri", "dro", "dru", "dry", "dy",
-			"e", "en", "eo", "es",
-			"fa", "fe", "fi", "fo", "fur", "fra", "fre", "fri", "fro", "fru", "fy",
-			"ga", "ge", "gi", "gna", "gne", "gno", "gri", "go", "gu", "gy",
-			"ha", "har", "he", "hi", "ho", "hu", "hy",
-			"i", "is",
-			"ja", "je", "ji", "jo",
-			"ka", "ke", "ki", "ko", "kra", "kre", "kre", "kri", "kro", "kru", "kry", "ku",
-			"la", "lar", "le", "ler", "li", "lo", "lor", "lu",
-			"mar", "mau", "me", "mo", "mu", "mau", "maw",
-			"na", "nar", "nau", "ne", "ner", "ni", "no", "nor", "nu",
-			"o", "oi", "ou", "or",
-			"pa", "pe", "pha", "phe", "phi", "pho", "phu", "pi", "po", "pu", "py",
-			"qua", "qua", "que", "qui", "quo",
-			"ra", "re", "res", "rho", "ri", "ro", "ru",
-			"sa", "sau", "se", "sha", "she", "shi", "sho", "shu", "si", "sio", "so", "soi", "sta", "ste", "sti", "sto", "stu", "su",
-			"tha", "the", "thi", "tho", "thu", "thra", "tra", "tre", "tri", "tro", "tru", "try", "tsa", "tso",
-			"ur",
-			"va", "vau", "ve", "vi", "vo", "vu", "vy",
-			"wa", "wal", "war", "we", "wi", "wo", "wu", "wur", "wra", "wre", "wri", "wro", "wru", "wry", "wy",
-			"xe", "xi",
-			"ya", "ye", "yi", "yo", "yu",
-			"za", "zar", "ze", "zi", "zo", "zor", "zu", "zur",
+	private static final String[] CONSONANTS = {
+			"b", "b", "bl", "br",
+			"c", "c", "ch", "cl", "cr",
+			"d", "d", "dr",
+			"f", "fl", "fr",
+			"g", "gl", "gr",
+			"h", "h",
+			"j",
+			"k", "k", "kl", "kr",
+			"l", "l", "ll", "lr",
+			"m", "m", "mm",
+			"n", "n", "nn",
+			"p", "p", "ph", "pl", "pr",
+			"q", "qu",
+			"r", "r", "rh", "rd",
+			"s", "s", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "str", "sw",
+			"t", "t", "th", "tr",
+			"v", "v", "vr",
+			"w", "wh", "wr",
+			"x",
+			"y", "y",
+			"z", "z", "zh"
+	};
+
+	private static final String[] VOWELS = {
+			"a", "a", "a", "aa", "ae", "ai", "ao", "au", "ay",
+			"e", "e", "e", "e", "ea", "ee", "ei", "eo",
+			"i", "i", "ia", "ie", "io",
+			"o", "o", "o", "oa", "oi", "oo", "ou",
+			"u", "ua", "ue",
+			"y",
 			"'"
 	};
 
-	private static final String[] SUFFIXES = {
-			"a",
-			"ay",
+	private static final String[] CONSONANT_SUFFIXES = {
 			"b",
-			"c",
-			"ce",
-			"ck",
+			"c", "ch", "ck",
 			"d",
-			"de",
-			"e",
-			"ey",
 			"f",
 			"g",
-			"gh",
 			"h",
-			"i",
-			"in",
-			"ion",
+			"j",
 			"k",
-			"ke",
-			"l",
-			"ll",
-			"le",
-			"m",
-			"n",
-			"ne",
-			"ng",
-			"ol",
-			"on",
-			"or",
-			"p",
-			"ph",
-			"r",
-			"rn",
-			"ry",
-			"s",
-			"ss",
-			"t",
-			"te",
-			"th",
+			"l", "ll",
+			"m", "m", "mm",
+			"n", "n", "ne",
+			"p", "ph",
+			"q",
+			"r", "rh",
+			"s", "sc", "sh", "sk", "sp", "st",
+			"t", "th",
 			"v",
 			"w",
 			"x",
-			"xt",
-			"y",
-			"z",
-			""
+			"y", "y",
+			"z"
 	};
 
 	public static String generateCharacterName() {
-		return generateCharacterName(random.nextInt(2) + random.nextInt(2));
+		return generateCharacterName(1 + random.nextInt(4));
 	}
 
 	public static String generateCharacterName(int minSyllables, int maxSyllables) {
@@ -97,13 +76,28 @@ public class CharacterNameGenerator {
 	}
 
 	public static String generateCharacterName(int numOfSyllables) {
-		String name = SYLLABLES[random.nextInt(SYLLABLES.length - 1)];
-		for (int i = 1; i < numOfSyllables; i++) {
-			name += SYLLABLES[random.nextInt(SYLLABLES.length)];
+		boolean startWithVowel = random.nextBoolean();
+		StringBuilder name = new StringBuilder();
+		if (startWithVowel) {
+			name.append(VOWELS[random.nextInt(VOWELS.length)]);
+			numOfSyllables--;
 		}
-		name += SUFFIXES[random.nextInt(SUFFIXES.length)];
-		name = name.substring(0, 1).toUpperCase() + name.substring(1);
-		return name;
+		for (int i = 0; i < numOfSyllables; i++) {
+			name.append(CONSONANTS[random.nextInt(VOWELS.length)]);
+			name.append(VOWELS[random.nextInt(VOWELS.length)]);
+		}
+
+		boolean endWithConsonant = random.nextBoolean();
+		if (endWithConsonant) {
+			name.append(CONSONANT_SUFFIXES[random.nextInt(CONSONANT_SUFFIXES.length)]);
+		}
+		return name.substring(0, 1).toUpperCase() + name.substring(1);
+	}
+
+	public static void main(String[] args) {
+		for (int i = 0; i < 100; i++) {
+			System.out.println(generateCharacterName(2, 3));
+		}
 	}
 
 }
